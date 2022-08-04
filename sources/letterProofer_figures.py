@@ -1,12 +1,11 @@
 #
 # -*- coding: UTF-8 -*- # ----------------------------------------------------------------------------- #
 #
-#     Proof Side Bearings
-#     Version: 0.001
+#     letterProofer | Figures
+#     Version: 0.002
 #
 #     Still working on this. Needs to be optimized and restructured.
-#     Error with savedState when there is more than one testString
-#     Extra page is drawn?
+#     Extra page is drawn—need to figure this out when I have more time
 #     
 #
 #     07/29/2022

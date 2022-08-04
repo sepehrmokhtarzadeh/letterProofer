@@ -1,12 +1,11 @@
 #
 # -*- coding: UTF-8 -*- # ----------------------------------------------------------------------------- #
 #
-#     Proof Side Bearings
-#     Version: 0.001
+#     letterProofer | Bearings, LC
+#     Version: 0.002
 #
 #     Still working on this. Needs to be optimized and restructured.
-#     Error with savedState when there is more than one testString
-#     Extra page is drawn?
+#     Extra page is drawn—need to figure this out when I have more time
 #     
 #
 #     07/29/2022
@@ -73,21 +72,14 @@ font_size_S = 16
 font_size_XS = 12
 font_size_XXS = 9
 
-tracking_amount = 20
-
 # --------------------------------------
 # -*- Text Strings -*- # 
 
-textStrings = [
+textStrings = [ 
+    
+[ "twelve_column", font_size_XS, "Bearings, LC", "naaan\nnaban\nnacan\nnadan\nnaean\nnafan\nnagan\nnahan\nnaian\nnajan\nnakan\nnalan\nnaman\nnanan\nnaoan\nnapan\nnaqan\nnaran\nnasan\nnatan\nnauan\nnavan\nnawan\nnaxan\nnayan\nnazan\nnbabn\nnbbbn\nnbcbn\nnbdbn\nnbebn\nnbfbn\nnbgbn\nnbhbn\nnbibn\nnbjbn\nnbkbn\nnblbn\nnbmbn\nnbnbn\nnbobn\nnbpbn\nnbqbn\nnbrbn\nnbsbn\nnbtbn\nnbubn\nnbvbn\nnbwbn\nnbxbn\nnbybn\nnbzbn\nncacn\nncbcn\nncccn\nncdcn\nncecn\nncfcn\nncgcn\nnchcn\nncicn\nncjcn\nnckcn\nnclcn\nncmcn\nncncn\nncocn\nncpcn\nncqcn\nncrcn\nncscn\nnctcn\nncucn\nncvcn\nncwcn\nncxcn\nncycn\nnczcn\nndadn\nndbdn\nndcdn\nndddn\nndedn\nndfdn\nndgdn\nndhdn\nndidn\nndjdn\nndkdn\nndldn\nndmdn\nndndn\nndodn\nndpdn\nndqdn\nndrdn\nndsdn\nndtdn\nndudn\nndvdn\nndwdn\nndxdn\nndydn\nndzdn\nneaen\nneben\nnecen\nneden\nneeen\nnefen\nnegen\nnehen\nneien\nnejen\nneken\nnelen\nnemen\nnenen\nneoen\nnepen\nneqen\nneren\nnesen\nneten\nneuen\nneven\nnewen\nnexen\nneyen\nnezen\nnfafn\nnfbfn\nnfcfn\nnfdfn\nnfefn\nnfffn\nnfgfn\nnfhfn\nnfifn\nnfjfn\nnfkfn\nnflfn\nnfmfn\nnfnfn\nnfofn\nnfpfn\nnfqfn\nnfrfn\nnfsfn\nnftfn\nnfufn\nnfvfn\nnfwfn\nnfxfn\nnfyfn\nnfzfn\nngagn\nngbgn\nngcgn\nngdgn\nngegn\nngfgn\nngggn\nnghgn\nngign\nngjgn\nngkgn\nnglgn\nngmgn\nngngn\nngogn\nngpgn\nngqgn\nngrgn\nngsgn\nngtgn\nngugn\nngvgn\nngwgn\nngxgn\nngygn\nngzgn\nnhahn\nnhbhn\nnhchn\nnhdhn\nnhehn\nnhfhn\nnhghn\nnhhhn\nnhihn\nnhjhn\nnhkhn\nnhlhn\nnhmhn\nnhnhn\nnhohn\nnhphn\nnhqhn\nnhrhn\nnhshn\nnhthn\nnhuhn\nnhvhn\nnhwhn\nnhxhn\nnhyhn\nnhzhn\nniain\nnibin\nnicin\nnidin\nniein\nnifin\nnigin\nnihin\nniiin\nnijin\nnikin\nnilin\nnimin\nninin\nnioin\nnipin\nniqin\nnirin\nnisin\nnitin\nniuin\nnivin\nniwin\nnixin\nniyin\nnizin\nnjajn\nnjbjn\nnjcjn\nnjdjn\nnjejn\nnjfjn\nnjgjn\nnjhjn\nnjijn\nnjjjn\nnjkjn\nnjljn\nnjmjn\nnjnjn\nnjojn\nnjpjn\nnjqjn\nnjrjn\nnjsjn\nnjtjn\nnjujn\nnjvjn\nnjwjn\nnjxjn\nnjyjn\nnjzjn\nnkakn\nnkbkn\nnkckn\nnkdkn\nnkekn\nnkfkn\nnkgkn\nnkhkn\nnkikn\nnkjkn\nnkkkn\nnklkn\nnkmkn\nnknkn\nnkokn\nnkpkn\nnkqkn\nnkrkn\nnkskn\nnktkn\nnkukn\nnkvkn\nnkwkn\nnkxkn\nnkykn\nnkzkn\nnlaln\nnlbln\nnlcln\nnldln\nnleln\nnlfln\nnlgln\nnlhln\nnliln\nnljln\nnlkln\nnllln\nnlmln\nnlnln\nnloln\nnlpln\nnlqln\nnlrln\nnlsln\nnltln\nnluln\nnlvln\nnlwln\nnlxln\nnlyln\nnlzln\nnmamn\nnmbmn\nnmcmn\nnmdmn\nnmemn\nnmfmn\nnmgmn\nnmhmn\nnmimn\nnmjmn\nnmkmn\nnmlmn\nnmmmn\nnmnmn\nnmomn\nnmpmn\nnmqmn\nnmrmn\nnmsmn\nnmtmn\nnmumn\nnmvmn\nnmwmn\nnmxmn\nnmymn\nnmzmn\nnnann\nnnbnn\nnncnn\nnndnn\nnnenn\nnnfnn\nnngnn\nnnhnn\nnninn\nnnjnn\nnnknn\nnnlnn\nnnmnn\nnnnnn\nnnonn\nnnpnn\nnnqnn\nnnrnn\nnnsnn\nnntnn\nnnunn\nnnvnn\nnnwnn\nnnxnn\nnnynn\nnnznn\nnoaon\nnobon\nnocon\nnodon\nnoeon\nnofon\nnogon\nnohon\nnoion\nnojon\nnokon\nnolon\nnomon\nnonon\nnooon\nnopon\nnoqon\nnoron\nnoson\nnoton\nnouon\nnovon\nnowon\nnoxon\nnoyon\nnozon\nnpapn\nnpbpn\nnpcpn\nnpdpn\nnpepn\nnpfpn\nnpgpn\nnphpn\nnpipn\nnpjpn\nnpkpn\nnplpn\nnpmpn\nnpnpn\nnpopn\nnpppn\nnpqpn\nnprpn\nnpspn\nnptpn\nnpupn\nnpvpn\nnpwpn\nnpxpn\nnpypn\nnpzpn\nnqaqn\nnqbqn\nnqcqn\nnqdqn\nnqeqn\nnqfqn\nnqgqn\nnqhqn\nnqiqn\nnqjqn\nnqkqn\nnqlqn\nnqmqn\nnqnqn\nnqoqn\nnqpqn\nnqqqn\nnqrqn\nnqsqn\nnqtqn\nnquqn\nnqvqn\nnqwqn\nnqxqn\nnqyqn\nnqzqn\nnrarn\nnrbrn\nnrcrn\nnrdrn\nnrern\nnrfrn\nnrgrn\nnrhrn\nnrirn\nnrjrn\nnrkrn\nnrlrn\nnrmrn\nnrnrn\nnrorn\nnrprn\nnrqrn\nnrrrn\nnrsrn\nnrtrn\nnrurn\nnrvrn\nnrwrn\nnrxrn\nnryrn\nnrzrn\nnsasn\nnsbsn\nnscsn\nnsdsn\nnsesn\nnsfsn\nnsgsn\nnshsn\nnsisn\nnsjsn\nnsksn\nnslsn\nnsmsn\nnsnsn\nnsosn\nnspsn\nnsqsn\nnsrsn\nnsssn\nnstsn\nnsusn\nnsvsn\nnswsn\nnsxsn\nnsysn\nnszsn\nntatn\nntbtn\nntctn\nntdtn\nntetn\nntftn\nntgtn\nnthtn\nntitn\nntjtn\nntktn\nntltn\nntmtn\nntntn\nntotn\nntptn\nntqtn\nntrtn\nntstn\nntttn\nntutn\nntvtn\nntwtn\nntxtn\nntytn\nntztn\nnuaun\nnubun\nnucun\nnudun\nnueun\nnufun\nnugun\nnuhun\nnuiun\nnujun\nnukun\nnulun\nnumun\nnunun\nnuoun\nnupun\nnuqun\nnurun\nnusun\nnutun\nnuuun\nnuvun\nnuwun\nnuxun\nnuyun\nnuzun\nnvavn\nnvbvn\nnvcvn\nnvdvn\nnvevn\nnvfvn\nnvgvn\nnvhvn\nnvivn\nnvjvn\nnvkvn\nnvlvn\nnvmvn\nnvnvn\nnvovn\nnvpvn\nnvqvn\nnvrvn\nnvsvn\nnvtvn\nnvuvn\nnvvvn\nnvwvn\nnvxvn\nnvyvn\nnvzvn\nnwawn\nnwbwn\nnwcwn\nnwdwn\nnwewn\nnwfwn\nnwgwn\nnwhwn\nnwiwn\nnwjwn\nnwkwn\nnwlwn\nnwmwn\nnwnwn\nnwown\nnwpwn\nnwqwn\nnwrwn\nnwswn\nnwtwn\nnwuwn\nnwvwn\nnwwwn\nnwxwn\nnwywn\nnwzwn\nnxaxn\nnxbxn\nnxcxn\nnxdxn\nnxexn\nnxfxn\nnxgxn\nnxhxn\nnxixn\nnxjxn\nnxkxn\nnxlxn\nnxmxn\nnxnxn\nnxoxn\nnxpxn\nnxqxn\nnxrxn\nnxsxn\nnxtxn\nnxuxn\nnxvxn\nnxwxn\nnxxxn\nnxyxn\nnxzxn\nnyayn\nnybyn\nnycyn\nnydyn\nnyeyn\nnyfyn\nnygyn\nnyhyn\nnyiyn\nnyjyn\nnykyn\nnylyn\nnymyn\nnynyn\nnyoyn\nnypyn\nnyqyn\nnyryn\nnysyn\nnytyn\nnyuyn\nnyvyn\nnywyn\nnyxyn\nnyyyn\nnyzyn\nnzazn\nnzbzn\nnzczn\nnzdzn\nnzezn\nnzfzn\nnzgzn\nnzhzn\nnzizn\nnzjzn\nnzkzn\nnzlzn\nnzmzn\nnznzn\nnzozn\nnzpzn\nnzqzn\nnzrzn\nnzszn\nnztzn\nnzuzn\nnzvzn\nnzwzn\nnzxzn\nnzyzn\nnzzzn\noaaao\noabao\noacao\noadao\noaeao\noafao\noagao\noahao\noaiao\noajao\noakao\noalao\noamao\noanao\noaoao\noapao\noaqao\noarao\noasao\noatao\noauao\noavao\noawao\noaxao\noayao\noazao\nobabo\nobbbo\nobcbo\nobdbo\nobebo\nobfbo\nobgbo\nobhbo\nobibo\nobjbo\nobkbo\noblbo\nobmbo\nobnbo\nobobo\nobpbo\nobqbo\nobrbo\nobsbo\nobtbo\nobubo\nobvbo\nobwbo\nobxbo\nobybo\nobzbo\nocaco\nocbco\noccco\nocdco\noceco\nocfco\nocgco\nochco\nocico\nocjco\nockco\noclco\nocmco\nocnco\nococo\nocpco\nocqco\nocrco\nocsco\noctco\nocuco\nocvco\nocwco\nocxco\nocyco\noczco\nodado\nodbdo\nodcdo\nodddo\nodedo\nodfdo\nodgdo\nodhdo\nodido\nodjdo\nodkdo\nodldo\nodmdo\nodndo\nododo\nodpdo\nodqdo\nodrdo\nodsdo\nodtdo\nodudo\nodvdo\nodwdo\nodxdo\nodydo\nodzdo\noeaeo\noebeo\noeceo\noedeo\noeeeo\noefeo\noegeo\noeheo\noeieo\noejeo\noekeo\noeleo\noemeo\noeneo\noeoeo\noepeo\noeqeo\noereo\noeseo\noeteo\noeueo\noeveo\noeweo\noexeo\noeyeo\noezeo\nofafo\nofbfo\nofcfo\nofdfo\nofefo\nofffo\nofgfo\nofhfo\nofifo\nofjfo\nofkfo\noflfo\nofmfo\nofnfo\nofofo\nofpfo\nofqfo\nofrfo\nofsfo\noftfo\nofufo\nofvfo\nofwfo\nofxfo\nofyfo\nofzfo\nogago\nogbgo\nogcgo\nogdgo\nogego\nogfgo\nogggo\noghgo\nogigo\nogjgo\nogkgo\noglgo\nogmgo\nogngo\nogogo\nogpgo\nogqgo\nogrgo\nogsgo\nogtgo\nogugo\nogvgo\nogwgo\nogxgo\nogygo\nogzgo\nohaho\nohbho\nohcho\nohdho\noheho\nohfho\nohgho\nohhho\nohiho\nohjho\nohkho\nohlho\nohmho\nohnho\nohoho\nohpho\nohqho\nohrho\nohsho\nohtho\nohuho\nohvho\nohwho\nohxho\nohyho\nohzho\noiaio\noibio\noicio\noidio\noieio\noifio\noigio\noihio\noiiio\noijio\noikio\noilio\noimio\noinio\noioio\noipio\noiqio\noirio\noisio\noitio\noiuio\noivio\noiwio\noixio\noiyio\noizio\nojajo\nojbjo\nojcjo\nojdjo\nojejo\nojfjo\nojgjo\nojhjo\nojijo\nojjjo\nojkjo\nojljo\nojmjo\nojnjo\nojojo\nojpjo\nojqjo\nojrjo\nojsjo\nojtjo\nojujo\nojvjo\nojwjo\nojxjo\nojyjo\nojzjo\nokako\nokbko\nokcko\nokdko\nokeko\nokfko\nokgko\nokhko\nokiko\nokjko\nokkko\noklko\nokmko\noknko\nokoko\nokpko\nokqko\nokrko\noksko\noktko\nokuko\nokvko\nokwko\nokxko\nokyko\nokzko\nolalo\nolblo\nolclo\noldlo\nolelo\nolflo\nolglo\nolhlo\nolilo\noljlo\nolklo\nolllo\nolmlo\nolnlo\nololo\nolplo\nolqlo\nolrlo\nolslo\noltlo\nolulo\nolvlo\nolwlo\nolxlo\nolylo\nolzlo\nomamo\nombmo\nomcmo\nomdmo\nomemo\nomfmo\nomgmo\nomhmo\nomimo\nomjmo\nomkmo\nomlmo\nommmo\nomnmo\nomomo\nompmo\nomqmo\nomrmo\nomsmo\nomtmo\nomumo\nomvmo\nomwmo\nomxmo\nomymo\nomzmo\nonano\nonbno\noncno\nondno\noneno\nonfno\nongno\nonhno\nonino\nonjno\nonkno\nonlno\nonmno\nonnno\nonono\nonpno\nonqno\nonrno\nonsno\nontno\nonuno\nonvno\nonwno\nonxno\nonyno\nonzno\nooaoo\nooboo\noocoo\noodoo\nooeoo\noofoo\noogoo\noohoo\nooioo\noojoo\nookoo\nooloo\noomoo\noonoo\nooooo\noopoo\nooqoo\nooroo\noosoo\nootoo\noouoo\noovoo\noowoo\nooxoo\nooyoo\noozoo\nopapo\nopbpo\nopcpo\nopdpo\nopepo\nopfpo\nopgpo\nophpo\nopipo\nopjpo\nopkpo\noplpo\nopmpo\nopnpo\nopopo\nopppo\nopqpo\noprpo\nopspo\noptpo\nopupo\nopvpo\nopwpo\nopxpo\nopypo\nopzpo\noqaqo\noqbqo\noqcqo\noqdqo\noqeqo\noqfqo\noqgqo\noqhqo\noqiqo\noqjqo\noqkqo\noqlqo\noqmqo\noqnqo\noqoqo\noqpqo\noqqqo\noqrqo\noqsqo\noqtqo\noquqo\noqvqo\noqwqo\noqxqo\noqyqo\noqzqo\noraro\norbro\norcro\nordro\norero\norfro\norgro\norhro\noriro\norjro\norkro\norlro\normro\nornro\nororo\norpro\norqro\norrro\norsro\nortro\noruro\norvro\norwro\norxro\noryro\norzro\nosaso\nosbso\noscso\nosdso\noseso\nosfso\nosgso\noshso\nosiso\nosjso\noskso\noslso\nosmso\nosnso\nososo\nospso\nosqso\nosrso\nossso\nostso\nosuso\nosvso\noswso\nosxso\nosyso\noszso\notato\notbto\notcto\notdto\noteto\notfto\notgto\nothto\notito\notjto\notkto\notlto\notmto\notnto\nototo\notpto\notqto\notrto\notsto\nottto\notuto\notvto\notwto\notxto\notyto\notzto\nouauo\noubuo\noucuo\nouduo\noueuo\noufuo\nouguo\nouhuo\nouiuo\noujuo\noukuo\nouluo\noumuo\nounuo\nououo\noupuo\nouquo\nouruo\nousuo\noutuo\nouuuo\nouvuo\nouwuo\nouxuo\nouyuo\nouzuo\novavo\novbvo\novcvo\novdvo\novevo\novfvo\novgvo\novhvo\novivo\novjvo\novkvo\novlvo\novmvo\novnvo\novovo\novpvo\novqvo\novrvo\novsvo\novtvo\novuvo\novvvo\novwvo\novxvo\novyvo\novzvo\nowawo\nowbwo\nowcwo\nowdwo\nowewo\nowfwo\nowgwo\nowhwo\nowiwo\nowjwo\nowkwo\nowlwo\nowmwo\nownwo\nowowo\nowpwo\nowqwo\nowrwo\nowswo\nowtwo\nowuwo\nowvwo\nowwwo\nowxwo\nowywo\nowzwo\noxaxo\noxbxo\noxcxo\noxdxo\noxexo\noxfxo\noxgxo\noxhxo\noxixo\noxjxo\noxkxo\noxlxo\noxmxo\noxnxo\noxoxo\noxpxo\noxqxo\noxrxo\noxsxo\noxtxo\noxuxo\noxvxo\noxwxo\noxxxo\noxyxo\noxzxo\noyayo\noybyo\noycyo\noydyo\noyeyo\noyfyo\noygyo\noyhyo\noyiyo\noyjyo\noykyo\noylyo\noymyo\noynyo\noyoyo\noypyo\noyqyo\noyryo\noysyo\noytyo\noyuyo\noyvyo\noywyo\noyxyo\noyyyo\noyzyo\nozazo\nozbzo\nozczo\nozdzo\nozezo\nozfzo\nozgzo\nozhzo\nozizo\nozjzo\nozkzo\nozlzo\nozmzo\noznzo\nozozo\nozpzo\nozqzo\nozrzo\nozszo\noztzo\nozuzo\nozvzo\nozwzo\nozxzo\nozyzo\nozzzo"],
 
-    [ "one_column", font_size_XXL, "Diacritic Forms", "´`¨¯\nˆˇ˘˙˚˜˝\n¸˛̦" ],
-
-    [ "one_column", font_size_L, "UC diacritical letters", "ÀÁÂÃÄÅĀĂĄǼÇĆĊČĎĐÈÉÊËĒĔĖĘĚĞĠĢĦÌÍÎÏĨĪĬİĮĶĹĻĽŁĿŃŅŇŊÑÒÓÔÕÖŌŎŐØǾŒŔŘŖŚŞŠȘŢŤŦȚÙÚÛÜŨŪŬŮŰŲŴẀẂẄÝŶŸŹŻŽ" ],
-
-    [ "one_column", font_size_L, "LC diacritical letters", "àáâãäåāăąǽçćċčďđèéêëēĕėęěğġģħıìíîïĩīĭįķĺļľłŀńņňŋñòóôõöōŏőøǿœŕřŗśşšșţťŧțùúûüũūŭůűųŵẁẃẅýŷÿźżž" ]
-
-]
-     
+    ]    
 # --------------------------------------
 # -*- Page Info -*- # 
 
@@ -175,88 +167,10 @@ def drawHeaderFooter():
 # --------------------------------------
 # -*- Functions, Page Layouts -*- # 
 
-def drawOneColumnLayout():
-    global y_pos_1
-    global y_pos_2
-    
-    with savedState():
-        
-        # # Set type for page title
-        # if font_size == waterfall_L or font_size == waterfall_M or font_size == waterfall_S:
-        #     font(caption_font, 14)
-        #     text(section, (edge_left, y_cord["45"]))
-        # else:
-        #     font(caption_font, 14)
-        #     text(' '.join([str(font_size), "pt.", section]),(edge_left, y_cord["45"]))
-        
-        # Set type for proof, single type size
-        if font_size == font_size_XXXL:
-            type_style()
-            fontSize(font_size)
-            line_height = font_size * 1.2
-            tracking(tracking_amount)
-            translate(0, -(line_height / 2))
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
-            
-        elif font_size == font_size_XXL:
-            type_style()
-            fontSize(font_size)
-            line_height = font_size * 1.2
-            tracking(tracking_amount)
-            translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
-            
-        elif font_size == font_size_XL:
-            type_style()
-            fontSize(font_size)
-            line_height = font_size * 1.2
-            tracking(tracking_amount)
-            translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
-            
-        elif font_size == font_size_L:
-            type_style()
-            fontSize(font_size)
-            line_height = font_size * 1.6
-            lineHeight(line_height)
-            tracking(tracking_amount)
-            translate(0, -fontCapHeight())
-            baselineShift(-(y_cord["1"]/2))
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
-            
-        elif font_size == font_size_M:
-            type_style()
-            fontSize(font_size)
-            tracking(tracking_amount)
-            translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
-            
-        elif font_size == font_size_S:
-            type_style()
-            fontSize(font_size)
-            lineHeight(32)
-            tracking(tracking_amount)
-            translate(0, -fontCapHeight()*4)
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
-            
-        elif font_size == font_size_XS:
-            type_style()
-            fontSize(font_size)
-            lineHeight(font_size * 1.4)
-            tracking(tracking_amount)
-            translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
-            
-        elif font_size == font_size_XXS:
-            type_style()
-            fontSize(font_size)
-            tracking(tracking_amount)
-            translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
-
 def drawTwelveColumnLayout():
     global y_pos_1
     global y_pos_2
+
 
     # Set type for proof, single type size
     if font_size == font_size_XS:
@@ -265,6 +179,7 @@ def drawTwelveColumnLayout():
         line_height = font_size * 1.3
         translate(0, -fontCapHeight())
 
+    
         # Page 1 columns
         textBox(proof_set[:227], (edge_left, -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
         textBox(proof_set[228:], (x_cord["1"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
@@ -309,7 +224,7 @@ def drawTwelveColumnLayout():
         
             # Add new page if textString is too long
             if len(proof_set) >= 5928:
-                
+            
                 newPage(page_dimensions)
                 grid()
                 drawHeaderFooter()
@@ -334,67 +249,9 @@ def drawTwelveColumnLayout():
                 textBox(proof_set[8214:], (x_cord["10"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
                 textBox(proof_set[8442:], (x_cord["11"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
                 textBox(proof_set[8670:], (x_cord["12"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-                
-def drawTwoSixColumnLayout():
-    global y_pos_1
-    global y_pos_2
-    
-    with savedState():
-        
-        # Set type for proof, single type size
-        if font_size == font_size_XS:
-            type_style()
-            fontSize(font_size)
-            line_height = font_size * 1.3
-            translate(0, -fontCapHeight())
-
-            # Column Set 1
-            textBox(proof_set[:227], (edge_left, -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[178:], (x_cord["1"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[357:], (x_cord["2"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[535:], (x_cord["3"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[714:], (x_cord["4"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[892:], (x_cord["5"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-        
-            # Column Set 2
-            openTypeFeatures(tnum=False)
-            textBox(proof_set[:227], (x_cord["7"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[178:], (x_cord["8"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[357:], (x_cord["9"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[535:], (x_cord["10"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[714:], (x_cord["11"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[892:], (x_cord["12"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-
-        if font_size == font_size_XXS:
-            type_style()
-            fontSize(12)
-            line_height = font_size * 1.3
-            translate(0, -fontCapHeight())
-
-            # Column Set 1
-            openTypeFeatures(lnum=False)
-            openTypeFeatures(tnum=False)
-            textBox(proof_set[:227], (edge_left, -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[178:], (x_cord["1"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[357:], (x_cord["2"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[535:], (x_cord["3"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[714:], (x_cord["4"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[892:], (x_cord["5"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-        
-            # Column Set 2
-            openTypeFeatures(lnum=False)
-            openTypeFeatures(tnum=False)
-            textBox(proof_set[:227], (x_cord["7"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[178:], (x_cord["8"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[357:], (x_cord["9"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[535:], (x_cord["10"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[714:], (x_cord["11"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-            textBox(proof_set[892:], (x_cord["12"], -(y_cord["0"]), (x_cord["1"]), margin_top_bottom), align="left")
-
 
 # Page template       
 def drawNewPage():
-    newPage(page_dimensions)
     grid()
     drawHeaderFooter()
 
@@ -411,8 +268,6 @@ def drawNewPage():
         drawOneColumnLayout()
     elif layout == "twelve_column":
         drawTwelveColumnLayout()
-    elif layout == "two-six_columns":
-        drawTwoSixColumnLayout()
             
 # Defines on/off button for grid and labels
 def grid():
