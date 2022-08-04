@@ -1,7 +1,7 @@
 #
 # -*- coding: UTF-8 -*- # ----------------------------------------------------------------------------- #
 #
-#     letterProofer | Spacing
+#     letterProofer | Words
 #     Version: 0.002
 #
 #     Still working on this. Needs to be optimized and restructured.
@@ -35,8 +35,13 @@ from itertools import islice
 # --------------------------------------
 # -*- Set paths to directories -*- # 
 
-font_folder = "/Users/smokh/S3P0/000-999/400-499 Creative/402 Type Design/02 Oldb/402.02.03 Fonts/2022-08-03"
-proof_folder = "/Users/smokh/S3P0/000-999/400-499 Creative/402 Type Design/03 Leitmotiv/402.03.06 Proofs"
+font_folder = "Path where fonts are location"
+proof_folder = "Path where proofs will be saved"
+
+# To activate saving, uncomment last bit of script below titled "Save"
+# This will create a folder in the format "YYYY-MM-DD" and save a PDF in it
+# If the folder already exists it should just create the PDF
+# If you already saved the file, it will not overwrite but start numbering +1
 
 # --------------------------------------
 # -*- Date & Time -*- # 
@@ -51,8 +56,9 @@ current_time = time.strftime("%H:%M", now)
 # -*- Settings -*- # 
 
 # Set your information
-designer_name = "Sepehr Mokhtarzadeh"
-typeface_name = "Leitmotif"
+designer_name = "Your Name"
+typeface_name = "Your Font Name"
+proof_name = "Spacing"
 
 # Set caption font
 caption_font = "AndaleMono"
@@ -68,9 +74,19 @@ font_size_XXL = 96
 font_size_XL = 80
 font_size_L = 50
 font_size_M = 24
-font_size_S = 16
+font_size_S = 18
 font_size_XS = 12
 font_size_XXS = 9
+
+# Set type waterfall sizes
+waterfall_L = (24, 36, 48, 60)
+waterfall_M = (12, 18, 24, 32)
+waterfall_S = (12, 18, 28)
+
+# Waterfall modifier
+modifier = 8
+y_pos_1 = 40
+y_pos_2 = y_pos_1 - 2
 
 tracking_amount = False
 
@@ -244,7 +260,7 @@ def drawOneColumnLayout():
             lineHeight(32)
             tracking(tracking_amount)
             translate(0, -fontCapHeight()*4)
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_XS:
             type_style()
@@ -252,7 +268,7 @@ def drawOneColumnLayout():
             lineHeight(font_size * 1.4)
             tracking(tracking_amount)
             translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_XXS:
             type_style()
@@ -493,30 +509,18 @@ def drawGridLabels():
         for y in range(number_of_rows + 1):
             text(str(y), (margin / -2, y_cord[str(y)]), align="center")
 
-# --------------------------------------
-
-# def collectFilesPaths(folder, extension=''):
-#     """hidden files (starting with a dot) are filtered out"""
-#     paths = []
-#     for eachFileName in [nn for nn in listdir(folder) if not nn.startswith('.')]:
-#         eachPath = join(folder, eachFileName)
-#         if isfile(eachPath) and eachPath.endswith(extension):
-#             paths.append(eachPath)
-#             print(paths)
-#         else:
-#             print(paths)
-#         return paths
-
-                    
-# def getFont(folder, extension=''):
-    
-#     fonts = []
-#     for eachFont in folder:
-#         eachPath = join(folder, eachFont)
-#         if isfile(eachPath) and eachPath.endswith(extension):
-#             f = OpenFont(eachFontPath, showInterface = False)
-#             fonts.append(f)
-#             print(f)
+# Draws title page
+def drawTitlePage(section=""):
+    with savedState():
+        translate(margin, margin)
+        with savedState():
+            translate(0, fontCapHeight() * 2)
+            meta_style()
+            # text(designer_name, (x_cord["0"], y_cord["48"]))
+            # text(typeface_name, (x_cord["0"], y_cord["46"]))
+            text((''.join(postscriptFontName + " " + font_version + " " + proof_name)), (edge_right, edge_top + 5), align = "right")
+            openTypeFeatures(tnum=True)
+            text((''.join(current_date + " , " + current_time)), (edge_right, edge_top - 7), align = "right")
         
 # --------------------------------------
 # -*- Instructions -*- # 
@@ -571,6 +575,35 @@ if __name__ == '__main__':
                 font_size = eachString[1]
                 drawNewPage()
 
+# -!- ALWAYS KEEP AT BOTTOM OF CODE -!-
+# --------------------------------------
+# -*- Page Numbers -*- # 
+
+# Get all pages
+allPages = pages()
+
+page_number = 0
+
+for page in allPages:
+    
+    # With each loop, add 1 to page number
+    page_number += 1
+    
+    # Set first page as current context
+    if page_number == 1:
+        
+        # Style first page
+        with page:
+            grid()
+            drawTitlePage("")
+    else:
+        
+        # Set next page as current context & add page number
+        with page:
+            meta_style()
+            translate(0, -fontCapHeight())
+            text(str(page_number), (edge_right, edge_bottom - 10), align="right")
+
 # --------------------------------------
 # -*- Save -*- # 
 
@@ -597,6 +630,3 @@ if __name__ == '__main__':
 #         file_version += 1
 #     path.mkdir(parents=True, exist_ok=True)
 #     saveImage(file_name + "_" + str(file_version) + ".pdf")
- 
-
-    

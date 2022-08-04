@@ -35,8 +35,13 @@ from itertools import islice
 # --------------------------------------
 # -*- Set paths to directories -*- # 
 
-font_folder = "/Users/smokh/S3P0/000-999/400-499 Creative/402 Type Design/02 Oldb/402.02.03 Fonts/2022-08-03"
-proof_folder = "/Users/smokh/S3P0/000-999/400-499 Creative/402 Type Design/03 Leitmotiv/402.03.06 Proofs"
+font_folder = "Path where fonts are location"
+proof_folder = "Path where proofs will be saved"
+
+# To activate saving, uncomment last bit of script below titled "Save"
+# This will create a folder in the format "YYYY-MM-DD" and save a PDF in it
+# If the folder already exists it should just create the PDF
+# If you already saved the file, it will not overwrite but start numbering +1
 
 # --------------------------------------
 # -*- Date & Time -*- # 
@@ -51,8 +56,9 @@ current_time = time.strftime("%H:%M", now)
 # -*- Settings -*- # 
 
 # Set your information
-designer_name = "Sepehr Mokhtarzadeh"
-typeface_name = "Leitmotif"
+designer_name = "Your Name"
+typeface_name = "Your Font Name"
+proof_name = "Diacritics, Vietnamese"
 
 # Set caption font
 caption_font = "AndaleMono"
@@ -66,11 +72,21 @@ caption_color = 0
 font_size_XXXL = 120
 font_size_XXL = 96
 font_size_XL = 80
-font_size_L = 50
+font_size_L = 40
 font_size_M = 24
-font_size_S = 16
+font_size_S = 14
 font_size_XS = 12
 font_size_XXS = 9
+
+# Set type waterfall sizes
+waterfall_L = (24, 36, 48, 60)
+waterfall_M = (12, 18, 24, 32)
+waterfall_S = (12, 18, 28)
+
+# Waterfall modifier
+modifier = 8
+y_pos_1 = 40
+y_pos_2 = y_pos_1 - 2
 
 tracking_amount = False
 
@@ -83,9 +99,9 @@ textStrings = [
 
     [ "one_column", font_size_L, "Running text, large", "Chúng ta dùng typography hàng ngày mà không biết rằng đó là typography. Tương tự như những thiết kế nội thất hay thiết kế thời trang, typography cũng là sản phẩm của sự sáng tạo, hòa trộn cả hai mặt khoa học và nghệ thuật, với nguyên liệu là các chữ cái." ],
 
-    [ "one_column", font_size_M, "Running text, small", "Cha đẻ của typography là một người Đức, Johannes Gutenberg, sáng chế phương pháp in bằng cách sắp xếp những chữ cái rời lên bản in năm 1450. Sự phát triển của ngành công nghệ thông tin giúp công việc thiết kế, chỉnh sửa vị trí và sắp xếp các chữ cái trở nên “dễ như bỡn”. Với kỹ thuật đồ họa tân tiến ngày nay, các “typographer” được trang bị phương tiện để thỏa sức sáng tạo vô vàn kiểu chữ mới.\n\nBan đầu typography chỉ sử dụng cho mục đích truyền thông với các yêu cầu chung như trình bày dễ đọc, dễ hiểu, và phù hợp cho nhiều đối tượng. Nhưng typography ngày nay đã phát triển lên một cấp độ khác với vai trò mới: khơi dậy và kích hoạt những cảm xúc. Nhờ đó ta có thể thưởng thức typography như một tác phẩm nghệ thuật và sáng tạo để nó luôn mới mẻ.\n\nNhiều người từng cảnh báo typography là kỹ thuật “gây nghiện”, bởi sau thời gian bỏ công nghiên cứu, bạn sẽ không còn thờ ơ nhìn vào những bảng quảng cáo, bìa sách, hay quyển tạp chí theo cách cũ. Rồi bạn sẽ bắt đầu chụp ảnh các biển báo trên đường thay vì chụp phong cảnh, chú ý đến cách trình bày thực đơn thay cho các món ăn và dành cả tuần lễ chỉ để tỉ mẩn lựa chọn kiểu chữ cho tiêu đề bài thuyết trình sắp tới. Nhưng bạn sẽ thấy tất cả thật đáng công, bởi nghiên cứu đã chứng minh, kiểu chữ và hình thức trình bày ảnh hưởng rất lớn đến cách ta đọc và những gì ta nhớ." ],
+    [ "one_column", font_size_M, "Running text, medium", "Cha đẻ của typography là một người Đức, Johannes Gutenberg, sáng chế phương pháp in bằng cách sắp xếp những chữ cái rời lên bản in năm 1450. Sự phát triển của ngành công nghệ thông tin giúp công việc thiết kế, chỉnh sửa vị trí và sắp xếp các chữ cái trở nên “dễ như bỡn”. Với kỹ thuật đồ họa tân tiến ngày nay, các “typographer” được trang bị phương tiện để thỏa sức sáng tạo vô vàn kiểu chữ mới.\n\nBan đầu typography chỉ sử dụng cho mục đích truyền thông với các yêu cầu chung như trình bày dễ đọc, dễ hiểu, và phù hợp cho nhiều đối tượng. Nhưng typography ngày nay đã phát triển lên một cấp độ khác với vai trò mới: khơi dậy và kích hoạt những cảm xúc. Nhờ đó ta có thể thưởng thức typography như một tác phẩm nghệ thuật và sáng tạo để nó luôn mới mẻ.\n\nNhiều người từng cảnh báo typography là kỹ thuật “gây nghiện”, bởi sau thời gian bỏ công nghiên cứu, bạn sẽ không còn thờ ơ nhìn vào những bảng quảng cáo, bìa sách, hay quyển tạp chí theo cách cũ. Rồi bạn sẽ bắt đầu chụp ảnh các biển báo trên đường thay vì chụp phong cảnh, chú ý đến cách trình bày thực đơn thay cho các món ăn và dành cả tuần lễ chỉ để tỉ mẩn lựa chọn kiểu chữ cho tiêu đề bài thuyết trình sắp tới. Nhưng bạn sẽ thấy tất cả thật đáng công, bởi nghiên cứu đã chứng minh, kiểu chữ và hình thức trình bày ảnh hưởng rất lớn đến cách ta đọc và những gì ta nhớ." ],
 
-    # [ "two_column", font_size_S, "Running text, columns", "Typography là một phần quan trọng của các sản phẩm in ấn như sách, báo, và tạp chí. Sử dụng nhuần nhuyễn kỹ thuật typography giúp ấn phẩm trở nên nổi bật, hấp dẫn và tạo được thương hiệu riêng với độc giả. Một số tạp chí nổi tiếng trên thế giới như The Guardian, The Economist, USA Today, The New York Times đều có người thiết kế typography để sáng tạo kiểu chữ riêng nhắm đến khách hàng mục tiêu của họ.\n\nTờ USA Today mang phong cách táo bạo, đầy màu sắc và tương đối hiện đại nhờ sử dụng một loạt các phông chữ với màu sắc và kích cỡ khác nhau, tên ấn phẩm in hoa trên nền có màu. Trái lại, The New York Times sử dụng phương pháp tiếp cận truyền thống hơn với ít màu, ít kiểu chữ, và nhiều cột.\n\nTrong lĩnh vực quảng cáo, typography tốt giúp xây dựng bản sắc riêng cho sản phẩm, dịch vụ. Sắp xếp kiểu chữ cũng quan trọng như việc chọn lựa màu sắc, hình ảnh khi thiết kế hệ thống nhận diện thương hiệu. Sự khác nhau giữa các kiểu chữ có thể tạo nên hình ảnh tương phản giữa một công ty chuyên nghiệp và không chuyên. Một trong những yếu tố khiến phong cách của Apple luôn được đánh giá cao là nhờ phông chữ Myriad Pro sử dụng thống nhất từ năm 2002 đến nay. Apple thành công với font Myriad Pro. Năm 2006, một thử nghiệm nổi tiếng về typography được thực hiện bởi Phil Renaud một sinh viên ngành thiết kế đại học Windsor (Canada). Trong suốt sáu học kỳ, Renaud thực hiện 52 bài tiểu luận bằng ba phông chữ khác nhau: Times New Roman, Trebuchet MS, và Georgia để gửi cho các giáo sư. Kết quả cho thấy, với cùng nội dung, kiểu chữ ảnh hưởng đáng kể đến điểm số đạt được.\n\nGeorgia cho điểm số tốt nhất. Trebuchet có vẻ thích hợp để viết blog hơn là một bài viết học thuật. Kết quả này cũng phù hợp với một nghiên cứu năm 1998 của Đại học Carnegie Mellon khẳng định, phông Georgia được đánh giá là sắc nét, dễ chịu và dễ đọc hơn cả phông chữ thông dụng Times New Roman.\n\nVận dụng tốt typography không chỉ giúp người đọc tập trung, dễ hiểu, tăng năng suất làm việc, mà còn có thể thuyết phục họ tin vào một thông điệp nào đó. Trái lại, cẩu thả khi trình bày văn bản đôi khi gây hậu quả khó lường, như sự cố Comic Sans vừa xảy ra với các chuyên gia tại Trung tâm Nghiên cứu Hạt nhân châu Âu (CERN) trong năm qua." ]
+    [ "two_column", font_size_S, "Running text, columns", "Typography là một phần quan trọng của các sản phẩm in ấn như sách, báo, và tạp chí. Sử dụng nhuần nhuyễn kỹ thuật typography giúp ấn phẩm trở nên nổi bật, hấp dẫn và tạo được thương hiệu riêng với độc giả. Một số tạp chí nổi tiếng trên thế giới như The Guardian, The Economist, USA Today, The New York Times đều có người thiết kế typography để sáng tạo kiểu chữ riêng nhắm đến khách hàng mục tiêu của họ.\n\nTờ USA Today mang phong cách táo bạo, đầy màu sắc và tương đối hiện đại nhờ sử dụng một loạt các phông chữ với màu sắc và kích cỡ khác nhau, tên ấn phẩm in hoa trên nền có màu. Trái lại, The New York Times sử dụng phương pháp tiếp cận truyền thống hơn với ít màu, ít kiểu chữ, và nhiều cột.\n\nTrong lĩnh vực quảng cáo, typography tốt giúp xây dựng bản sắc riêng cho sản phẩm, dịch vụ. Sắp xếp kiểu chữ cũng quan trọng như việc chọn lựa màu sắc, hình ảnh khi thiết kế hệ thống nhận diện thương hiệu. Sự khác nhau giữa các kiểu chữ có thể tạo nên hình ảnh tương phản giữa một công ty chuyên nghiệp và không chuyên. Một trong những yếu tố khiến phong cách của Apple luôn được đánh giá cao là nhờ phông chữ Myriad Pro sử dụng thống nhất từ năm 2002 đến nay. Apple thành công với font Myriad Pro. Năm 2006, một thử nghiệm nổi tiếng về typography được thực hiện bởi Phil Renaud một sinh viên ngành thiết kế đại học Windsor (Canada). Trong suốt sáu học kỳ, Renaud thực hiện 52 bài tiểu luận bằng ba phông chữ khác nhau: Times New Roman, Trebuchet MS, và Georgia để gửi cho các giáo sư. Kết quả cho thấy, với cùng nội dung, kiểu chữ ảnh hưởng đáng kể đến điểm số đạt được.\n\nGeorgia cho điểm số tốt nhất. Trebuchet có vẻ thích hợp để viết blog hơn là một bài viết học thuật. Kết quả này cũng phù hợp với một nghiên cứu năm 1998 của Đại học Carnegie Mellon khẳng định, phông Georgia được đánh giá là sắc nét, dễ chịu và dễ đọc hơn cả phông chữ thông dụng Times New Roman.\n\nVận dụng tốt typography không chỉ giúp người đọc tập trung, dễ hiểu, tăng năng suất làm việc, mà còn có thể thuyết phục họ tin vào một thông điệp nào đó. Trái lại, cẩu thả khi trình bày văn bản đôi khi gây hậu quả khó lường, như sự cố Comic Sans vừa xảy ra với các chuyên gia tại Trung tâm Nghiên cứu Hạt nhân châu Âu (CERN) trong năm qua." ]
 
 ]
      
@@ -218,19 +234,21 @@ def drawOneColumnLayout():
         elif font_size == font_size_L:
             type_style()
             fontSize(font_size)
-            line_height = font_size * 1.6
+            line_height = font_size * 1.1
             lineHeight(line_height)
             tracking(tracking_amount)
             translate(0, -fontCapHeight())
-            baselineShift(-(y_cord["1"]/2))
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+            baselineShift(-(y_cord["1"]-20))
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
             
         elif font_size == font_size_M:
             type_style()
             fontSize(font_size)
+            line_height = font_size * 1.1
+            lineHeight(line_height)
             tracking(tracking_amount)
-            translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+            translate(0, -(line_height / 4))
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
             
         elif font_size == font_size_S:
             type_style()
@@ -254,6 +272,93 @@ def drawOneColumnLayout():
             tracking(tracking_amount)
             translate(0, -fontCapHeight())
             textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+            
+def drawTwoColumnLayout():
+    global y_pos_1
+    global y_pos_2
+    
+    with savedState():
+            
+        # # Set type for page title
+        # if font_size == waterfall_L or font_size == waterfall_M or font_size == waterfall_S or font_size == font_size_S or font_size == font_size_XS or font_size == font_size_XXS:
+        #     font(caption_font, 14)
+        #     text(section, (edge_left, y_cord["45"]))
+        # else:
+        #     font(caption_font, 14)
+        #     text(' '.join([str(font_size), "pt.", section]),(edge_left, y_cord["45"]))
+        
+        # Set type for proof, single type size
+        if font_size == font_size_XXL:
+            type_style()
+            fontSize(font_size)
+            line_height = font_size * 1.2
+            translate(0, -fontCapHeight())
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+            
+        if font_size == font_size_S:
+            type_style()
+            
+            # Column 1
+            fontSize(font_size)
+            line_height = 16
+            lineHeight(line_height)
+            translate(0, -fontCapHeight())
+            textBox("Typography là một phần quan trọng của các sản phẩm in ấn như sách, báo, và tạp chí. Sử dụng nhuần nhuyễn kỹ thuật typography giúp ấn phẩm trở nên nổi bật, hấp dẫn và tạo được thương hiệu riêng với độc giả. Một số tạp chí nổi tiếng trên thế giới như The Guardian, The Economist, USA Today, The New York Times đều có người thiết kế typography để sáng tạo kiểu chữ riêng nhắm đến khách hàng mục tiêu của họ.\n\nTờ USA Today mang phong cách táo bạo, đầy màu sắc và tương đối hiện đại nhờ sử dụng một loạt các phông chữ với màu sắc và kích cỡ khác nhau, tên ấn phẩm in hoa trên nền có màu. Trái lại, The New York Times sử dụng phương pháp tiếp cận truyền thống hơn với ít màu, ít kiểu chữ, và nhiều cột.\n\nTrong lĩnh vực quảng cáo, typography tốt giúp xây dựng bản sắc riêng cho sản phẩm, dịch vụ. Sắp xếp kiểu chữ cũng quan trọng như việc chọn lựa màu sắc, hình ảnh khi thiết kế hệ thống nhận diện thương hiệu. Sự khác nhau giữa các kiểu chữ có thể tạo nên hình ảnh tương phản giữa", (((x_cord["1"])-20), (y_cord["5"]), ((x_cord["5"])+30), (y_cord["40"])), align="left")
+            
+            # Column 2
+            textBox("một công ty chuyên nghiệp và không chuyên. Một trong những yếu tố khiến phong cách của Apple luôn được đánh giá cao là nhờ phông chữ Myriad Pro sử dụng thống nhất từ năm 2002 đến nay. Apple thành công với font Myriad Pro. Năm 2006, một thử nghiệm nổi tiếng về typography được thực hiện bởi Phil Renaud một sinh viên ngành thiết kế đại học Windsor (Canada). Trong suốt sáu học kỳ, Renaud thực hiện 52 bài tiểu luận bằng ba phông chữ khác nhau: Times New Roman, Trebuchet MS, và Georgia để gửi cho các giáo sư. Kết quả cho thấy, với cùng nội dung, kiểu chữ ảnh hưởng đáng kể đến điểm số đạt được.\n\nGeorgia cho điểm số tốt nhất. Trebuchet có vẻ thích hợp để viết blog hơn là một bài viết học thuật. Kết quả này cũng phù hợp với một nghiên cứu năm 1998 của Đại học Carnegie Mellon khẳng định, phông Georgia được đánh giá là sắc nét, dễ chịu và dễ đọc hơn cả phông chữ thông dụng Times New Roman.\n\nVận dụng tốt typography không chỉ giúp người đọc tập trung, dễ hiểu, tăng năng suất làm việc, mà còn có thể ", ((x_cord["7"]-20), (y_cord["5"]), ((x_cord["5"])+30), (y_cord["40"])), align="left")
+            
+            # Type specs
+            meta_style()
+            translate(0, y_cord["0"])
+            text(str(font_size), (edge_left, (y_cord["45"]-8)))
+        
+        # Set type for proof, waterfalls
+        if font_size == waterfall_L:
+
+            for pts in font_size:
+                type_style()
+                fontSize(pts)
+                translate(0, -fontCapHeight())
+                textWidth, textHeight = textSize(proof_set)
+                
+                # Ends loop to prevent TypeError
+                if y_pos_1 < 0:
+                    continue
+                    if y_pos_2 < 0:
+                        continue 
+                                    
+                text( proof_set, (x_cord["0"], y_cord[str(y_pos_1)]) )
+                meta_style()
+                text( f"{pts}pt", (x_cord["0"], y_cord[str(y_pos_2)]) )
+                y_pos_1 = y_pos_1 - 6
+                y_pos_2 = y_pos_2 - 6
+                
+        if font_size == waterfall_M:     
+            y_pos_1 = 40
+            y_pos_2 = y_pos_1 - 2 
+
+            for pts in font_size:
+                type_style()
+                fontSize(pts)
+                translate(0, -fontCapHeight())
+                textWidth, textHeight = textSize(proof_set)
+                
+                # Ends loop to prevent TypeError
+                if y_pos_1 < 0:
+                    continue
+                    if y_pos_2 < 0:
+                        continue 
+                
+                # Creates text            
+                text( proof_set, ((x_cord["6"] -margin), y_cord[str(y_pos_1)]), align="right" )
+                text( proof_set.upper(), ((x_cord["7"] -margin), y_cord[str(y_pos_1)]), align="left" )
+                
+                meta_style()
+                text( f"{pts}pt", ((x_cord["6"] -margin), y_cord[str(y_pos_2)]), align="right" )
+                text( f"{pts}pt", ((x_cord["7"] -margin), y_cord[str(y_pos_2)]), align="left" )
+                y_pos_1 = y_pos_1 - 6
+                y_pos_2 = y_pos_2 - 6
 
 def drawTwelveColumnLayout():
     global y_pos_1
@@ -487,30 +592,18 @@ def drawGridLabels():
         for y in range(number_of_rows + 1):
             text(str(y), (margin / -2, y_cord[str(y)]), align="center")
 
-# --------------------------------------
-
-# def collectFilesPaths(folder, extension=''):
-#     """hidden files (starting with a dot) are filtered out"""
-#     paths = []
-#     for eachFileName in [nn for nn in listdir(folder) if not nn.startswith('.')]:
-#         eachPath = join(folder, eachFileName)
-#         if isfile(eachPath) and eachPath.endswith(extension):
-#             paths.append(eachPath)
-#             print(paths)
-#         else:
-#             print(paths)
-#         return paths
-
-                    
-# def getFont(folder, extension=''):
-    
-#     fonts = []
-#     for eachFont in folder:
-#         eachPath = join(folder, eachFont)
-#         if isfile(eachPath) and eachPath.endswith(extension):
-#             f = OpenFont(eachFontPath, showInterface = False)
-#             fonts.append(f)
-#             print(f)
+# Draws title page
+def drawTitlePage(section=""):
+    with savedState():
+        translate(margin, margin)
+        with savedState():
+            translate(0, fontCapHeight() * 2)
+            meta_style()
+            # text(designer_name, (x_cord["0"], y_cord["48"]))
+            # text(typeface_name, (x_cord["0"], y_cord["46"]))
+            text((''.join(postscriptFontName + " " + font_version + " " + proof_name)), (edge_right, edge_top + 5), align = "right")
+            openTypeFeatures(tnum=True)
+            text((''.join(current_date + " , " + current_time)), (edge_right, edge_top - 7), align = "right")
         
 # --------------------------------------
 # -*- Instructions -*- # 
@@ -564,6 +657,35 @@ if __name__ == '__main__':
             elif eachString[1] == font_size_XXS:
                 font_size = eachString[1]
                 drawNewPage()
+
+# -!- ALWAYS KEEP AT BOTTOM OF CODE -!-
+# --------------------------------------
+# -*- Page Numbers -*- # 
+
+# Get all pages
+allPages = pages()
+
+page_number = 0
+
+for page in allPages:
+    
+    # With each loop, add 1 to page number
+    page_number += 1
+    
+    # Set first page as current context
+    if page_number == 1:
+        
+        # Style first page
+        with page:
+            grid()
+            drawTitlePage("")
+    else:
+        
+        # Set next page as current context & add page number
+        with page:
+            meta_style()
+            translate(0, -fontCapHeight())
+            text(str(page_number), (edge_right, edge_bottom - 10), align="right")
 
 # --------------------------------------
 # -*- Save -*- # 

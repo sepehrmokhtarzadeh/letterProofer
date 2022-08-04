@@ -1,7 +1,7 @@
 #
 # -*- coding: UTF-8 -*- # ----------------------------------------------------------------------------- #
 #
-#     letterProofer | Forms
+#     letterProofer | Diacritics, Eastern European
 #     Version: 0.002
 #
 #     Still working on this. Needs to be optimized and restructured.
@@ -58,7 +58,7 @@ current_time = time.strftime("%H:%M", now)
 # Set your information
 designer_name = "Your Name"
 typeface_name = "Your Font Name"
-proof_name = "Forms"
+proof_name = "Eastern European Diacritics"
 
 # Set caption font
 caption_font = "AndaleMono"
@@ -69,9 +69,9 @@ caption_color = 0
 # -*- Type Sizes -*- # 
 
 # Set type scale
-font_size_XXXL = 190
-font_size_XXL = 120
-font_size_XL = 96
+font_size_XXXL = 120
+font_size_XXL = 96
+font_size_XL = 80
 font_size_L = 50
 font_size_M = 24
 font_size_S = 16
@@ -88,28 +88,18 @@ modifier = 8
 y_pos_1 = 40
 y_pos_2 = y_pos_1 - 2
 
-tracking_amount = 15
+tracking_amount = 20
 
 # --------------------------------------
 # -*- Text Strings -*- # 
 
 textStrings = [
 
-	[ "one_column", font_size_XXL, "Uppercase", "ABCDEFG\nHIJKLMN\nOPQRST\nUVWXYZ"],
-	
-	[ "one_column", font_size_XXL, "Lowercase", "abcdefgh\nijklmno\npqrstu\nvwxyz"],
-	
-	[ "one_column", font_size_XXL, "Similar Forms", "ẞ&\nðßþ"],
-	
-	[ "one_column", font_size_XL, "Alphabet", "ABEFGHPR\nCGS acegs\ngpqþjy\nAVWYRKX\nkvwxy"],
-	
-	[ "one_column", font_size_XXL, "Figures", "01234\n5689\n$£¥€₺₹¢\n#%°§"],
-	
-	[ "one_column", font_size_XXL, "Figures Symbol Forms (cont)", "S$c¢©\nR®\naªoº"],
-	
-	[ "one_column", font_size_XXL, "Punctuation", """.…,:;?¿!¡\n'"‘’‚“”„\n‹›«»-–—_\n†‡•*’"""],
-	
-	[ "one_column", font_size_XXL, "Misc", "©®@™¶\n(|)[\]{/}\n<+−=÷×>\n±^⁄~|¦"]
+    [ "one_column", font_size_XXL, "Diacritic Forms", "´`¨¯\nˆˇ˘˙˚˜˝\n¸˛̦" ],
+
+    [ "one_column", font_size_L, "UC diacritical letters", "ÀÁÂÃÄÅĀĂĄǼÇĆĊČĎĐÈÉÊËĒĔĖĘĚĞĠĢĦÌÍÎÏĨĪĬİĮĶĹĻĽŁĿŃŅŇŊÑÒÓÔÕÖŌŎŐØǾŒŔŘŖŚŞŠȘŢŤŦȚÙÚÛÜŨŪŬŮŰŲŴẀẂẄÝŶŸŹŻŽ" ],
+
+    [ "one_column", font_size_L, "LC diacritical letters", "àáâãäåāăąǽçćċčďđèéêëēĕėęěğġģħıìíîïĩīĭįķĺļľłŀńņňŋñòóôõöōŏőøǿœŕřŗśşšșţťŧțùúûüũūŭůűųŵẁẃẅýŷÿźżž" ]
 
 ]
      
@@ -206,42 +196,46 @@ def drawOneColumnLayout():
     
     with savedState():
         
+        # # Set type for page title
+        # if font_size == waterfall_L or font_size == waterfall_M or font_size == waterfall_S:
+        #     font(caption_font, 14)
+        #     text(section, (edge_left, y_cord["45"]))
+        # else:
+        #     font(caption_font, 14)
+        #     text(' '.join([str(font_size), "pt.", section]),(edge_left, y_cord["45"]))
+        
         # Set type for proof, single type size
         if font_size == font_size_XXXL:
             type_style()
             fontSize(font_size)
-            line_height = font_size * 1
-            lineHeight(line_height)
+            line_height = font_size * 1.2
             tracking(tracking_amount)
-            translate(0, -(line_height / 4))
+            translate(0, -(line_height / 2))
             textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_XXL:
             type_style()
             fontSize(font_size)
-            line_height = font_size - 20
-            lineHeight(line_height)
+            line_height = font_size * 1.2
             tracking(tracking_amount)
-            translate(0, -(line_height / 2))
+            translate(0, -fontCapHeight())
             textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_XL:
             type_style()
             fontSize(font_size)
-            line_height = font_size - 10
-            lineHeight(line_height)
-            tracking(0)
-            translate(0, -(line_height / 2.5))
+            line_height = font_size * 1.2
+            tracking(tracking_amount)
+            translate(0, -(line_height / 5))
             textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_L:
             type_style()
             fontSize(font_size)
-            line_height = font_size * 1.6
+            line_height = font_size * 1.3
             lineHeight(line_height)
             tracking(tracking_amount)
-            translate(0, -fontCapHeight())
-            baselineShift(-(y_cord["1"]/2))
+            translate(0, -(line_height / 4))
             textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_M:

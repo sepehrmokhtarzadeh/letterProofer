@@ -1,7 +1,7 @@
 #
 # -*- coding: UTF-8 -*- # ----------------------------------------------------------------------------- #
 #
-#     letterProofer | Forms
+#     letterProofer | Words
 #     Version: 0.002
 #
 #     Still working on this. Needs to be optimized and restructured.
@@ -58,10 +58,10 @@ current_time = time.strftime("%H:%M", now)
 # Set your information
 designer_name = "Your Name"
 typeface_name = "Your Font Name"
-proof_name = "Forms"
+proof_name = "Letterproof"
 
 # Set caption font
-caption_font = "AndaleMono"
+caption_font = "Menlo"
 caption_size = 7
 caption_color = 0
 
@@ -69,12 +69,12 @@ caption_color = 0
 # -*- Type Sizes -*- # 
 
 # Set type scale
-font_size_XXXL = 190
-font_size_XXL = 120
-font_size_XL = 96
+font_size_XXXL = 120
+font_size_XXL = 96
+font_size_XL = 80
 font_size_L = 50
 font_size_M = 24
-font_size_S = 16
+font_size_S = 18
 font_size_XS = 12
 font_size_XXS = 9
 
@@ -93,25 +93,37 @@ tracking_amount = 15
 # --------------------------------------
 # -*- Text Strings -*- # 
 
-textStrings = [
+textStrings = [ 
 
-	[ "one_column", font_size_XXL, "Uppercase", "ABCDEFG\nHIJKLMN\nOPQRST\nUVWXYZ"],
-	
-	[ "one_column", font_size_XXL, "Lowercase", "abcdefgh\nijklmno\npqrstu\nvwxyz"],
-	
-	[ "one_column", font_size_XXL, "Similar Forms", "ẞ&\nðßþ"],
-	
-	[ "one_column", font_size_XL, "Alphabet", "ABEFGHPR\nCGS acegs\ngpqþjy\nAVWYRKX\nkvwxy"],
-	
-	[ "one_column", font_size_XXL, "Figures", "01234\n5689\n$£¥€₺₹¢\n#%°§"],
-	
-	[ "one_column", font_size_XXL, "Figures Symbol Forms (cont)", "S$c¢©\nR®\naªoº"],
-	
-	[ "one_column", font_size_XXL, "Punctuation", """.…,:;?¿!¡\n'"‘’‚“”„\n‹›«»-–—_\n†‡•*’"""],
-	
-	[ "one_column", font_size_XXL, "Misc", "©®@™¶\n(|)[\]{/}\n<+−=÷×>\n±^⁄~|¦"]
+    # Lowercase alphabet
+    [ "one_column", font_size_XXL, "Lowercase alphabet", "abcdefg\nhijklmno\npqrstuv\nwxyz.,"],
+    
+    # Lowercase Latin
+    [ "asymmetric_two_column", font_size_XS, "Lowercase Latin", "proof set elsewhere"],
+    
+    # Uppercase alphabet
+    [ "one_column", font_size_XXL,  "Uppercase alphabet", "ABCDEFG\nHIJKLMNO\nPQRSTUV\nWXYZ&?!"],
+    
+    # Uppercase Latin
+    [ "asymmetric_two_column", font_size_XXS, "Uppercase Latin", "proof set elsehwere"],    
 
-]
+    # Obliques
+    [ "one_column", waterfall_L, "Relative weight of obliques", "ikiviwixiyiziIKIVIWIXIYIZI" ],
+
+    # Lowercase & Uppercase alphabet
+    [ "one_column", font_size_XL,  "Lowercase & Uppercase alphabet", "Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz"],
+    
+    # Figures, currency
+    [ "one_column", font_size_XL,   "Figures, currency symbols and math characters", ''.join([string.digits, "0§¶$¢ƒ£¥€8°'*\nn-–—o\n", "0−+±×÷=≈#%8" ])],
+        
+    # Diacritics & Central European
+    [ "one_column", font_size_L, "Diacritics and Central European glyphs", "˝`´ˆˇ˘˜˚˙¨¯¸˛\næœąęįųçđðħĸłŋøßŧıȷ\næœāåďťŀľģķòóőôǒŏöõōñ\nÆŒÅĄĘĮŲÇĐÐĦŦŁŊØSS\nÆŒĎŤĿĽĢÒÓŐÔǑŎÖÕŌÑ" ],
+    
+    # Basic character set
+    [ "one_column", font_size_L, "Basic character set overview",  ''.join(["@", string.ascii_lowercase,";:,.\n „“‘l’”", "H?![]{}()/|\ ·-–—[Hq]\n", string.ascii_uppercase, "H&H\n", "©1234567890§¶$¢ƒ£¥€8°'\n 0−+±×÷=≈#%8\n0123456789" ])],
+
+
+]  
      
 # --------------------------------------
 # -*- Page Info -*- # 
@@ -210,39 +222,33 @@ def drawOneColumnLayout():
         if font_size == font_size_XXXL:
             type_style()
             fontSize(font_size)
-            line_height = font_size * 1
-            lineHeight(line_height)
+            line_height = font_size * 1.2
             tracking(tracking_amount)
-            translate(0, -(line_height / 4))
+            translate(0, -(line_height / 2))
             textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_XXL:
             type_style()
             fontSize(font_size)
-            line_height = font_size - 20
-            lineHeight(line_height)
+            line_height = font_size * 1.2
             tracking(tracking_amount)
-            translate(0, -(line_height / 2))
+            translate(0, -fontCapHeight())
             textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_XL:
             type_style()
             fontSize(font_size)
-            line_height = font_size - 10
-            lineHeight(line_height)
-            tracking(0)
-            translate(0, -(line_height / 2.5))
+            line_height = font_size * 1.2
+            translate(0, -(line_height / 2))
             textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_L:
             type_style()
             fontSize(font_size)
-            line_height = font_size * 1.6
+            line_height = font_size * 1.1
             lineHeight(line_height)
-            tracking(tracking_amount)
-            translate(0, -fontCapHeight())
-            baselineShift(-(y_cord["1"]/2))
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+            translate(0, (line_height - 90))
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, (margin_top_bottom + 20)), align="center")
             
         elif font_size == font_size_M:
             type_style()
@@ -257,7 +263,7 @@ def drawOneColumnLayout():
             lineHeight(32)
             tracking(tracking_amount)
             translate(0, -fontCapHeight()*4)
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_XS:
             type_style()
@@ -265,7 +271,7 @@ def drawOneColumnLayout():
             lineHeight(font_size * 1.4)
             tracking(tracking_amount)
             translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
             
         elif font_size == font_size_XXS:
             type_style()
@@ -273,6 +279,206 @@ def drawOneColumnLayout():
             tracking(tracking_amount)
             translate(0, -fontCapHeight())
             textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+
+        # Set type for proof, waterfalls 
+        if font_size == waterfall_L:
+            type_style()
+            y_pos_1 = 42
+            y_pos_2 = y_pos_1 - 2 
+            
+            for pts in font_size:
+                type_style()
+                fontSize(pts)
+                translate(0, -fontCapHeight())
+                
+                if y_pos_1 < 0:
+                    continue
+                    if y_pos_2 < 0:
+                        continue 
+                             
+                text( proof_set, (x_cord["0"], y_cord[str(y_pos_1)]) )
+                
+                meta_style()
+                text( f"{pts}pt", (x_cord["0"], y_cord[str(y_pos_2)]) )
+                y_pos_1 = y_pos_1 - 6
+                y_pos_2 = y_pos_2 - 6
+                                
+        elif font_size == waterfall_M:
+            type_style()     
+            translate(0, -fontCapHeight())
+                
+            # Waterfall 1
+            fontSize(14)                        
+            textBox( proof_set, (x_cord["0"], y_cord["0"], margin_left_right, margin_top_bottom -fontCapHeight()*6) )
+            
+            # Waterfall 2
+            wtr = FormattedString()
+            wtr.fontSize(18)
+            wtr.font(font_name)
+            wtr.fallbackFont("AdobeBlank")
+            wtr += proof_set
+            textBox( wtr, (x_cord["0"], y_cord["0"], margin_left_right, margin_top_bottom -fontCapHeight()*12) ) 
+            
+            # Waterfall 3
+            wtr = FormattedString()
+            wtr.fontSize(24)
+            wtr.font(font_name)
+            wtr.fallbackFont("AdobeBlank")
+            wtr += proof_set
+            textBox( wtr, (x_cord["0"], y_cord["0"], margin_left_right, margin_top_bottom -fontCapHeight()*18) ) 
+
+            # Waterfall 4
+            wtr = FormattedString()
+            wtr.fontSize(36)
+            wtr.font(font_name)
+            wtr.fallbackFont("AdobeBlank")
+            wtr += proof_set
+            textBox( wtr, (x_cord["0"], y_cord["0"], margin_left_right, margin_top_bottom -fontCapHeight()*28) ) 
+                
+        elif font_size == waterfall_S:
+            type_style()     
+            fontSize(font_size)
+
+            for pts in font_size:
+                fontSize(pts)
+                translate(0, -fontCapHeight())
+                # print(pts)
+                # textWidth, textHeight = textSize(proof_set)
+                text( proof_set, (x_cord["0"], y_cord[str(y_pos_1)]) )
+                meta_style()
+                text( f"{pts}pt", (x_cord["0"], y_cord[str(y_pos_2)]) )
+                y_pos_1 = y_pos_1 - 6
+                y_pos_2 = y_pos_2 - 6
+
+
+def drawTwoColumnLayout():
+    global y_pos_1
+    global y_pos_2
+    
+    with savedState():
+
+        # Set type for proof, single type size
+        if font_size == font_size_XXL:
+            type_style()
+            fontSize(font_size)
+            line_height = font_size * 1.2
+            translate(0, -fontCapHeight())
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+            
+        if font_size == font_size_S:
+            type_style()
+            
+            # Column 1
+            fontSize(14)
+            line_height = 14 * 1.3
+            translate(0, -fontCapHeight())
+            textBox(proof_set, (edge_left, -(y_cord["6"]), (x_cord["6"]-20), margin_top_bottom), align="left")
+            
+            # Column 2
+            fontSize(16)
+            line_height = 16 * 1.3
+            translate(0, -fontCapHeight())
+            baselineShift(3.75)
+            textBox(proof_set, (x_cord["6"], -(y_cord["6"]), x_cord["6"], margin_top_bottom), align="left")
+            
+            # Type specs
+            meta_style()
+            translate(0, y_cord["0"])
+            text("14pt", (edge_left, (y_cord["43"])))
+            text("16pt", (x_cord["6"], (y_cord["43"])))
+        
+        if font_size == font_size_XS:
+            type_style()
+            
+            # Column 1
+            fontSize(12)
+            line_height = 10 * 1.3
+            translate(0, -fontCapHeight())
+            textBox("Angel Adept Blind Bodice Clique Coast Dunce Docile Enact Eosin Furlong Focal Gnome Gondola Human Hoist Inlet Iodine Justin Jocose Knoll Koala Linden Loads Milliner Modal Number Nodule Onset Oddball Pneumo Poncho Quanta Qophs Rhone Roman Snout Sodium Tundra Tocsin Uncle Udder Vulcan Vocal Whale Woman Xmas Xenon Yunnan Young Zloty Zodiac. Angel angel adept for the nuance loads of the arena cocoa and quaalude. Blind blind bodice for the submit oboe of the club snob and abbot. Clique clique coast for the pouch loco of the franc assoc and accede. Dunce dunce docile for the loudness mastodon of the loud statehood and huddle. Enact enact eosin for the quench coed of the pique canoe and bleep. Furlong furlong focal for the genuflect profound of the motif aloof and offers. Gnome gnome gondola for the impugn logos of the unplug analog and smuggle. Human human hoist for the buddhist alcohol of the riyadh caliph and bathhouse. Inlet inlet iodine for the quince champion of the ennui scampi and shiite. Justin justin jocose for the djibouti sojourn of the oranj raj and hajjis. Knoll knoll koala for the banknote lookout of the dybbuk outlook and trekked. Linden linden loads for the ulna monolog of the consul menthol and shallot. Milliner milliner modal for the alumna solomon of the album custom and summon. Number number nodule for the unmade economic of the shotgun bison and tunnel. ", (edge_left, -(y_cord["2"]), x_cord["5"], margin_top_bottom), align="left")
+            
+            # Column 2
+            fontSize(12)
+            line_height = 12 * 1.3
+            translate(0, -fontCapHeight())
+            baselineShift(3.75)
+            textBox("Onset onset oddball for the abandon podium of the antiquo tempo and moonlit. Pneumo pneumo poncho for the dauphin opossum of the holdup bishop and supplies. Quanta quanta qophs for the inquest sheqel of the cinq coq and suqqu. Rhone rhone roman for the burnt porous of the lemur clamor and carrot. Snout snout sodium for the ensnare bosom of the genus pathos and missing. Tundra tundra tocsin for the nutmeg isotope of the peasant ingot and ottoman. Uncle uncle udder for the dunes cloud of the hindu thou and continuum. Vulcan vulcan vocal for the alluvial ovoid of the yugoslav chekhov and revved. Whale whale woman for the meanwhile blowout of the forepaw meadow and glowworm. Xmas xmas xenon for the bauxite doxology of the tableaux equinox and exxon. Yunnan yunnan young for the dynamo coyote of the obloquy employ and sayyid. Zloty zloty zodiac for the gizmo ozone of the franz laissez and buzzing.", (x_cord["6"], -(y_cord["2"]), x_cord["5"], margin_top_bottom), align="left")
+            
+            # Type specs
+            meta_style()
+            translate(0, y_cord["0"])
+            text("12pt", (edge_left, (y_cord["47"])))
+            text("12pt", (x_cord["6"], (y_cord["47"])))
+            
+        if font_size == font_size_XXS:
+            type_style()
+            
+            # Column 1
+            fontSize(12)
+            line_height = 10 * 1.3
+            translate(0, -fontCapHeight())
+            textBox("ABIDE ACORN OF THE HABIT DACRON FOR THE BUDDHA GOUDA QUAALUDE. BENCH BOGUS OF THE SCRIBE ROBOT FOR THE APLOMB JACOB RIBBON. CENSUS CORAL OF THE SPICED JOCOSE FOR THE BASIC HAVOC SOCCER. DEMURE DOCILE OF THE TIDBIT LODGER FOR THE CUSPID PERIOD BIDDER. EBBING ECHOING OF THE BUSHED DECAL FOR THE APACHE ANODE NEEDS. FEEDER FOCUS OF THE LIFER BEDFORD FOR THE SERIF PROOF BUFFER. GENDER GOSPEL OF THE PIGEON DOGCART FOR THE SPRIG QUAHOG DIGGER. HERALD HONORS OF THE DIHEDRAL MADHOUSE FOR THE PENH RIYADH BATHHOUSE. IBSEN ICEMAN OF THE APHID NORDIC FOR THE SUSHI SAUDI SHIITE. JENNIES JOGGER OF THE TIJERA ADJOURN FOR THE ORANJ KOWBOJ HAJJIS. KEEPER KOSHER OF THE SHRIKE BOOKCASE FOR THE SHEIK LOGBOOK CHUKKAS. LENDER LOCKER OF THE CHILD GIGOLO FOR THE UNCOIL GAMBOL ENROLLED. MENACE MCCOY OF THE NIMBLE TOMCAT FOR THE DENIM RANDOM SUMMON. NEBULA NOSHED OF THE INBRED BRONCO FOR THE COUSIN CARBON KENNEL. ", (edge_left, -(y_cord["2"]), x_cord["5"], margin_top_bottom), align="left")
+            
+            # Column 2
+            fontSize(12)
+            line_height = 12 * 1.3
+            translate(0, -fontCapHeight())
+            baselineShift(3.75)
+            textBox("OBSESS OCEAN OF THE PHOBIC DOCKSIDE FOR THE GAUCHO LIBIDO HOODED. PENNIES PODIUM OF THE SNIPER OPCODE FOR THE SCRIP BISHOP HOPPER. QUANTA QOPHS OF THE INQUEST OQOS FOR THE CINQ COQ SUQQU. REDUCE ROGUE OF THE GIRDLE ORCHID FOR THE MEMOIR SENSOR SORREL. SENIOR SCONCE OF THE DISBAR GODSON FOR THE HUBRIS AMENDS LESSEN. TENDON TORQUE OF THE UNITED SCOTCH FOR THE NOUGHT FORGOT BITTERS. UNDER UGLINESS OF THE RHUBARB SEDUCE FOR THE MANCHU HINDU CONTINUUM. VERSED VOUCH OF THE DIVER OVOID FOR THE TELAVIV KARPOV FLIVVER. WENCH WORKER OF THE UNWED SNOWCAP FOR THE ANDREW ESCROW GLOWWORM. XENON XOCHITL OF THE MIXED BOXCAR FOR THE SUFFIX ICEBOX EXXON. YEOMAN YONDER OF THE HYBRID ARROYO FOR THE DINGHY BRANDY SAYYID. ZEBRA ZOMBIE OF THE PRIZED OZONE FOR THE FRANZ ARROZ BUZZING.", (x_cord["6"], -(y_cord["2"]), x_cord["5"], margin_top_bottom), align="left")
+            
+            # Type specs
+            meta_style()
+            translate(0, y_cord["0"])
+            text("12pt", (edge_left, (y_cord["47"])))
+            text("12pt", (x_cord["6"], (y_cord["47"])))
+            
+def drawAsymmetricTwoColumnLayout():
+    global y_pos_1
+    global y_pos_2
+    
+    with savedState():
+        if font_size == font_size_XS:
+            type_style()
+            
+            # Column 1
+            fontSize(12)
+            line_height = 10 * 1.3
+            translate(0, -fontCapHeight())
+            textBox("nnanonoaoo	uan\nnnbnonoboo	ubn\nnncnonocoo	ucn\nnndnonodoo	udn\nnnenonoeoo	uen\nnnfnonofoo	ufn\nnngnonogoo	ugn\n nnhonohoo	uhn\nnninonoioo	uin\nnnjnonojoo	ujn\nnnknonokoo	ukn\nnnlnonoloo	uln\nnnmnonomoo	umn\nnnnnononoo	unn\nnnononoooo	uon\nnnpnonopoo	upn\n nnqnonoqoo	uqn\nnnrnonoroo	urn\nnnsnonosoo	usn\nnntnonotoo	utn\nnnunonouoo	uun\n nnvnonovoo	uvn\nnnwnonowoo	uwn\nnnxnonoxoo	uxn\nnnynonoyoo	uyn\nnnznonozoo	uzn\n\nnn.nono.oo	u.n\nnn,nono,oo	u,n\n", (edge_left, -(y_cord["2"]), x_cord["3"], margin_top_bottom), align="left")
+            
+            # Column 2
+            fontSize(12)
+            line_height = 12 * 1.3
+            translate(0, -fontCapHeight())
+            baselineShift(3.75)
+            textBox("Angel Adept Blind Bodice Clique Coast Dunce Docile Enact Eosin Furlong Focal Gnome Gondola Human Hoist Inlet Iodine Justin Jocose Knoll Koala Linden Loads Milliner Modal Number Nodule Onset Oddball Pneumo Poncho Quanta Qophs Rhone Roman Snout Sodium Tundra Tocsin Uncle Udder Vulcan Vocal Whale Woman Xmas Xenon Yunnan Young Zloty Zodiac. Angel angel adept for the nuance loads of the arena cocoa and quaalude. Blind blind bodice for the submit oboe of the club snob and abbot. Clique clique coast for the pouch loco of the franc assoc and accede. Dunce dunce docile for the loudness mastodon of the loud statehood and huddle. Enact enact eosin for the quench coed of the pique canoe and bleep. Furlong furlong focal for the genuflect profound of the motif aloof and offers. Gnome gnome gondola for the impugn logos of the unplug analog and smuggle. Human human hoist for the buddhist alcohol of the riyadh caliph and bathhouse. Inlet inlet iodine for the quince champion of the ennui scampi and shiite. Justin justin jocose for the djibouti sojourn of the oranj raj and hajjis. Knoll knoll koala for the banknote lookout of the dybbuk outlook and trekked. Linden linden loads for the ulna monolog of the consul menthol and shallot. Milliner milliner modal for the alumna solomon of the album custom and summon. Number number nodule for the unmade economic of the shotgun bison and tunnel. Onset onset oddball for the abandon podium of the antiquo tempo and moonlit. Pneumo pneumo poncho for the dauphin opossum of the holdup bishop and supplies. Quanta quanta qophs for the inquest sheqel of the cinq coq and suqqu. Rhone rhone roman for the burnt porous of the lemur clamor and carrot. Snout snout sodium for the ensnare bosom of the genus pathos and missing. Tundra tundra tocsin for the nutmeg isotope of the peasant ingot and ottoman. Uncle uncle udder for the dunes cloud of the hindu thou and continuum. Vulcan vulcan vocal for the alluvial ovoid of the yugoslav chekhov and revved. Whale whale woman for the meanwhile blowout of the forepaw meadow and glowworm. Xmas xmas xenon for the bauxite doxology of the tableaux equinox and exxon. Yunnan yunnan young for the dynamo coyote of the obloquy employ and sayyid. Zloty zloty zodiac for the gizmo ozone of the franz laissez and buzzing.", (x_cord["4"], -(y_cord["2"]), x_cord["8"], margin_top_bottom), align="left")
+            
+            # Type specs
+            meta_style()
+            translate(0, y_cord["0"])
+            text("12pt", (edge_left, (y_cord["48"])))
+            text("12pt", (x_cord["4"], (y_cord["48"])))
+
+        if font_size == font_size_XXS:
+            type_style()
+            
+            # Column 1
+            fontSize(12)
+            line_height = 10 * 1.3
+            translate(0, -fontCapHeight())
+            textBox("HHAHOHOAOO	HAH\nHHBHOHOBOO	HBH\nHHCHOHOCOO	HCH\nHHDHOHODOO	HDH\nHHEHOHOEOO	HEH\nHHFHOHOFOO	HFH\nHHGHOHOGOO	HGH\nHHHHOHOHOO	HHH\nHHIHOHOIOO	HIH\nHHJHOHOJOO	HJH\nHHKHOHOKOO	HKH\nHHLHOHOLOO	HLH\nHHMHOHOMO	HMH\nHHNHOHONO	HNH\nHHOHOHOOOO	HOH\nHHPHOHOPOO	HPH\nHHQHOHOQOO	HQH\nHHRHOHOROO	HRH\nHHSHOHOSOO	HSH\nHHTHOHOTOO	HTH\nHHUHOHOUOO	HUH\nHHVHOHOVOO	HVH\nHHWHOHOWOO	HWH\nHHXHOHOXOO	HXH\nHHYHOHOYOO	HYH\nHHZHOHOZOO	HZH\n\nHH&HOHO&OO	H&H\nHH?HOHO?OO	H?H\nHH!HOHO!OO	H!H", (edge_left, -(y_cord["2"]), x_cord["3"], margin_top_bottom), align="left")
+            
+            # Column 2
+            fontSize(12)
+            line_height = 12 * 1.3
+            translate(0, -fontCapHeight())
+            baselineShift(3.75)
+            textBox("ABIDE ACORN OF THE HABIT DACRON FOR THE BUDDHA GOUDA QUAALUDE. BENCH BOGUS OF THE SCRIBE ROBOT FOR THE APLOMB JACOB RIBBON. CENSUS CORAL OF THE SPICED JOCOSE FOR THE BASIC HAVOC SOCCER. DEMURE DOCILE OF THE TIDBIT LODGER FOR THE CUSPID PERIOD BIDDER. EBBING ECHOING OF THE BUSHED DECAL FOR THE APACHE ANODE NEEDS. FEEDER FOCUS OF THE LIFER BEDFORD FOR THE SERIF PROOF BUFFER. GENDER GOSPEL OF THE PIGEON DOGCART FOR THE SPRIG QUAHOG DIGGER. HERALD HONORS OF THE DIHEDRAL MADHOUSE FOR THE PENH RIYADH BATHHOUSE. IBSEN ICEMAN OF THE APHID NORDIC FOR THE SUSHI SAUDI SHIITE. JENNIES JOGGER OF THE TIJERA ADJOURN FOR THE ORANJ KOWBOJ HAJJIS. KEEPER KOSHER OF THE SHRIKE BOOKCASE FOR THE SHEIK LOGBOOK CHUKKAS. LENDER LOCKER OF THE CHILD GIGOLO FOR THE UNCOIL GAMBOL ENROLLED. MENACE MCCOY OF THE NIMBLE TOMCAT FOR THE DENIM RANDOM SUMMON. NEBULA NOSHED OF THE INBRED BRONCO FOR THE COUSIN CARBON KENNEL. OBSESS OCEAN OF THE PHOBIC DOCKSIDE FOR THE GAUCHO LIBIDO HOODED. PENNIES PODIUM OF THE SNIPER OPCODE FOR THE SCRIP BISHOP HOPPER. QUANTA QOPHS OF THE INQUEST OQOS FOR THE CINQ COQ SUQQU. REDUCE ROGUE OF THE GIRDLE ORCHID FOR THE MEMOIR SENSOR SORREL. SENIOR SCONCE OF THE DISBAR GODSON FOR THE HUBRIS AMENDS LESSEN. TENDON TORQUE OF THE UNITED SCOTCH FOR THE NOUGHT FORGOT BITTERS. UNDER UGLINESS OF THE RHUBARB SEDUCE FOR THE MANCHU HINDU CONTINUUM. VERSED VOUCH OF THE DIVER OVOID FOR THE TELAVIV KARPOV FLIVVER. WENCH WORKER OF THE UNWED SNOWCAP FOR THE ANDREW ESCROW GLOWWORM. XENON XOCHITL OF THE MIXED BOXCAR FOR THE SUFFIX ICEBOX EXXON. YEOMAN YONDER OF THE HYBRID ARROYO FOR THE DINGHY BRANDY SAYYID. ZEBRA ZOMBIE OF THE PRIZED OZONE FOR THE FRANZ ARROZ BUZZING.", (x_cord["4"], -(y_cord["2"]), x_cord["8"], margin_top_bottom), align="left")
+            
+            # Type specs
+            meta_style()
+            translate(0, y_cord["0"])
+            text("12pt", (edge_left, (y_cord["48"])))
+            text("12pt", (x_cord["4"], (y_cord["48"])))
 
 def drawTwelveColumnLayout():
     global y_pos_1
@@ -505,7 +711,7 @@ def drawGridLabels():
         translate(0, (-fontCapHeight() / 2))
         for y in range(number_of_rows + 1):
             text(str(y), (margin / -2, y_cord[str(y)]), align="center")
-
+            
 # Draws title page
 def drawTitlePage(section=""):
     with savedState():
@@ -534,7 +740,7 @@ if __name__ == '__main__':
         f = OpenFont(eachFontPath, showInterface = False)
         f.testInstall
         postscriptFontName = '%s-%s' % (f.info.familyName, f.info.styleName)
-        font_version = ''.join(str(f.info.versionMajor) + '.' + str(f.info.versionMinor))
+        font_version = ''.join('v.' + str(f.info.versionMajor) + '.' + str(f.info.versionMinor))
         print(font_version)
         print(postscriptFontName)
         
@@ -571,6 +777,17 @@ if __name__ == '__main__':
             elif eachString[1] == font_size_XXS:
                 font_size = eachString[1]
                 drawNewPage()
+                
+            # Waterfall type loops
+            elif eachString[1] == waterfall_L:
+                font_size = eachString[1]
+                drawNewPage()
+            elif eachString[1] == waterfall_M:
+                font_size = eachString[1]
+                drawNewPage()
+            elif eachString[1] == waterfall_S:
+                font_size = eachString[1]
+                drawNewPage()
 
 # -!- ALWAYS KEEP AT BOTTOM OF CODE -!-
 # --------------------------------------
@@ -601,6 +818,7 @@ for page in allPages:
             translate(0, -fontCapHeight())
             text(str(page_number), (edge_right, edge_bottom - 10), align="right")
 
+
 # --------------------------------------
 # -*- Save -*- # 
 
@@ -627,6 +845,3 @@ for page in allPages:
 #         file_version += 1
 #     path.mkdir(parents=True, exist_ok=True)
 #     saveImage(file_name + "_" + str(file_version) + ".pdf")
- 
-
-    

@@ -35,8 +35,13 @@ from itertools import islice
 # --------------------------------------
 # -*- Set paths to directories -*- # 
 
-font_folder = "/Users/smokh/S3P0/000-999/400-499 Creative/402 Type Design/02 Oldb/402.02.03 Fonts/2022-08-03"
-proof_folder = "/Users/smokh/S3P0/000-999/400-499 Creative/402 Type Design/03 Leitmotiv/402.03.06 Proofs"
+font_folder = "Path where fonts are location"
+proof_folder = "Path where proofs will be saved"
+
+# To activate saving, uncomment last bit of script below titled "Save"
+# This will create a folder in the format "YYYY-MM-DD" and save a PDF in it
+# If the folder already exists it should just create the PDF
+# If you already saved the file, it will not overwrite but start numbering +1
 
 # --------------------------------------
 # -*- Date & Time -*- # 
@@ -51,8 +56,9 @@ current_time = time.strftime("%H:%M", now)
 # -*- Settings -*- # 
 
 # Set your information
-designer_name = "Sepehr Mokhtarzadeh"
-typeface_name = "Leitmotif"
+designer_name = "Your Name"
+typeface_name = "Your Font Name"
+proof_name = "Running Text"
 
 # Set caption font
 caption_font = "AndaleMono"
@@ -66,11 +72,12 @@ caption_color = 0
 font_size_XXXL = 120
 font_size_XXL = 96
 font_size_XL = 80
-font_size_L = 50
+font_size_L = 40
 font_size_M = 24
-font_size_S = 16
+font_size_S = 14
 font_size_XS = 12
-font_size_XXS = 9
+font_size_S_cap = 14
+font_size_XS_cap = 12
 
 # Set type waterfall sizes
 waterfall_L = (24, 36, 48, 60)
@@ -88,16 +95,24 @@ tracking_amount = False
 # -*- Text Strings -*- # 
 
 textStrings = [ 
-
+    
     [ "one_column", font_size_L, "Large", "The Siniaka-Minia Faunal Reserve was established as an IUCN Category IV area in 1965 covering an area of 4,260 km (1,640 sq mi), due its importance for preserving black rhinoceros. Siniaka-Minia has been managed by the nonprofit conservation organization African Parks since 2017 in partnership with Chad’s government following the success of the African Parks partnership in Zakouma National Park. The reserve is large plain terrain with a backdrop of a massif which rises to a height of 1,613 metres (5,292 ft). It is drained by the Siniaka River and Dorioum River, which are ephemeral in nature; some water holes remain for use during the summer months. Vegetation in the southern part of the reserve is of Sudan savanna while in the north it consists of thorny bushes. The reserve, apart from preserving many threatened species, also contains greater kudu, red-fronted gazelle, oribi, roan antelope, lion and cheetah. Wild animals in the reserve are subject to degree of poaching by well armed hunters which has been difficult to control in view of lack adequate personnel and equipment to carry out effective surveillance operations. It would still need attention as there are sufficient number of mammal species which need to be conserved."],
 
     [ "one_column", font_size_M, "Medium", "Charles Bachman Moore Jr. (October 28, 1920 – March 2, 2010) was an American physicist, engineer and meteorologist, known for his research on atmospheric physics and his work with gas balloons. He was born in Maryville, Tennessee. Moore attended college at Georgia Institute of Technology in 1940. During World War II, he served as a weather equipment officer for the U.S. Army Air Corps in the China-Burma-India theater, and later in occupied China. Moore returned to Georgia Tech after the war, and received a bachelor’s degree in chemical engineering in 1947. Moore was recruited as a project engineer for Project Mogul in 1947 by New York University geophysicist Athelstan Spilhaus, who headed the Balloon Group within the project. Project Mogul, led by Dr. James Peoples and his assistant Albert P. Crary, made use of Moore’s work in materials science allowing the construction of balloons which could better withstand cold temperatures and safely rise to significantly greater altitudes. A balloon that Moore helped launch in New Mexico on June 4, 1947, was later identified as the source of the debris found on the Foster ranch which led to UFO conspiracy theories and claims surrounding the Roswell incident. In 1953, Moore joined the Arthur D. Little Corporation and worked with Bernard Vonnegut to develop techniques for vaporizing sodium, cesium, and calcium from rockets for high-altitude studies of winds and sodium in the upper atmosphere. They collaborated on over 50 publications related to atmospheric electricity. Moore worked at the General Mills Aeronautical Research Laboratory throughout the 1950s, participating in a number of projects sponsored by the Office of Naval Research aimed at developing both military and intelligence applications for balloons, including attempts to drop anti-Soviet leaflets from balloons and the use of balloons for surveillance purposes. Moore was also known for his 1959 expedition to the stratosphere with Malcolm Ross, in which they performed the first spectrographic analysis of the planet Venus which was free of interference from the Earth’s atmosphere, thereby proving the existence of water on that planet; this expedition involved an ascent to 89,000 feet (27 km, then a record for altitude). In 1969, Moore became the chairman of Langmuir Laboratory for Atmospheric Research and greatly expanded the lab’s facilities. Moore was a professor of atmospheric physics at the New Mexico Institute of Mining and Technology in Socorro for several years, and nominally retired in 1985; however, he continued his research afterward, and his subsequent discoveries led to the first improvement in the design of the lightning rod since that device’s invention by Benjamin Franklin. Moore has received a number of professional and academic honors." ],
 
-    [ "two column", font_size_S, "small", "Hillhead (Scots: Hullheid, Scottish Gaelic: Ceann a’ Chnuic) is an area of Glasgow, Scotland. Situated north of Kelvingrove Park and to the south of the River Kelvin, Hillhead is at the heart of Glasgow’s fashionable West End, with Byres Road forming the western border of the area, the other boundaries being Dumbarton Road to the south and the River Kelvin to the east and north. Hillhead was an independent police burgh from 1869, but as Glasgow grew during the nineteenth century it was first swallowed up physically by the growing city, and then administratively in 1891. Byres Road is a commercially important district to the city of Glasgow, featuring many of the city’s most fashionable and popular independent boutiques. The University of Glasgow is located in the area, having moved from its original site on the High Street to its current Gilmorehill location in 1870. Consequently a great number of students live in the area. Many academics from the University live in the area along with BBC Scotland employees, actors, broadcasters, writers and many students from various universities and teaching hospitals, creating an economically and culturally diverse community. Other features of Hillhead include Ashton Lane, Western Baths, Hillhead High School, Glasgow Academy (a private school), and the Kelvinbridge, which straddles the River Kelvin which used to form an eastern boundary between Hillhead and Glasgow, until Hillhead’s incorporation into the city. The area is served by Hillhead subway station and Kelvinbridge subway station on the Glasgow Subway system. The two stops on either side of those are Kelvinhall in Partick, and St George’s Cross in Woodlands. The neoclassical colonnaded Wellington Church is located on University Avenue, directly opposite the University. The church is a Category A listed building. The archives about Hillhead are maintained by the Archives of the University of Glasgow (GUAS). Jill Schlabach (born 1965 or 1966) is an American diver. She competed in the NCAA Championship and the 1991 Pan American Games. Schlabach hoped to participate in the 1992 Olympics. Schlabach did tumbling in elementary school and did not surviving until she entered high school. She said that she landed right on her face the first time she went off a board. After graduating from Fairfield High School, Schlabach attended the University of Cincinnati as a nursing major. Schlabach was one of the top divers in the Cincinnati Bearcats swimming and diving team. She earned a full athletic scholarship after she won 8th place in the NCAA Championships, where she earned an All-America title in 1986. She was named female diver of the year in 1986 by the Metro Conference and during the same year, she was a finalist in the 1 meter board competition at the U.S. Diving Championships. Schlabach moved to Michigan in December 1989 after meeting University of Michigan coach Dick Kimball at an Olympic Festival. Kimball asked her to join his team and Schlabach found a job at the Michigan Medical Center. Once she improved her diving, she began to work less hours. During days that she worked, Schlabach trained from 4:10 to 6:00 PM, arrive at work by 7:00 PM, stay there till 7:30 AM, and then travel back to the pool to train until 9:30. Schlabach later competed at the FINA Diving World Cup in Canada. Schlabach was a surgical intensive-care nurse at Michigan Medicine at the time she competed in the 1991 Pan American Games. In order to have the time-off to compete, Schlabach worked four days of 12-hour shifts in a row. At the 1991 Pan American Games, Shlabach won the 1 meter springboard and Alison Malsch received second place. Schlabach scored 256.5 points and Maisch received 250.68 points, with Schlabach’s best individual score being 55.08 points. She stated that she hoped to compete in the 3 meter and 10 meter events at the 1992 Olympics." ],
+    [ "two_column", font_size_S, "small", "proof text is elsewhere" ],
 
-    [ "two_column", font_size_S, "smaller", "The Street family is an Australian dynasty, founded by the 19th-century banker and politician John Street and his wife Susanna, the daughter of Australian explorer and politician William Lawson. Their son Sir Philip Street, grandson Sir Kenneth Street, and great-grandson Sir Laurence Street each served as Chief Justice of the Supreme Court of New South Wales and Lieutenant-Governor of New South Wales. Geoffrey Street served as Minister of Defence in the Second World War, his son Anthony “Tony” Street served as Minister of Foreign Affairs, and Jessie, Lady Street was Australia’s first female delegate to the United Nations. Sir Laurence’s son Alexander “Sandy” Street, daughter Sylvia Emmett (née Street) and son-in-law Arthur Emmett serve as federal judges. John Rendell Street, MLC (1832–1891) was an Australian banker and politician, born to Maria Wood and John Street, JP. His father descended from Baron Sir Thomas Street, an English Chief Justice who presided on the last King’s Bench before the Glorious Revolution of 1688. Both parents were English immigrants to Australia via the 1822 passenger ship Thalia. In 1886, John founded the Perpetual Trustee Company as managing director with fellow trustees Edmund Barton and James Fairfax. He succeeded Edmund Barton, Australia’s 1st Prime Minister, in his New South Wales Legislative Assembly seat of East Sydney. John married Susanna Lawson, the daughter of Australian politician William Lawson, MLC, who along with William Wentworth and Gregory Blaxland pioneered the first settler crossing of the Blue Mountains in 1813. John and Susanna had seven children, including the future Sir Philip and Ernest, who married Emma Browne, the daughter of Australian author Thomas Browne. John was a director of the Colonial Mutual Life Assurance Company (now Commonwealth Bank). His sister Sarah married Thomas Smith, MLC, managing director of the Commercial Banking Company of Sydney (now NAB) and the nephew of CBCS chairman Henry Smith, MLC. Three other Street ancestors via the wives of Sir Kenneth and Sir Laurence were John’s contemporaries, namely John Watt, MLC, a director of the Union Bank of Australia (now ANZ), his father-in-law George Holden, MLC, a trustee of the Bank of New South Wales (now Westpac), and Edward Ogilvie, MLC. Sir Philip Whistler Street, KCMG, KC (1863–1938) was the 8th Chief Justice of the Supreme Court of New South Wales and Lieutenant-Governor of New South Wales. On 11 February 1907, he was made a full judge of the Supreme Court of New South Wales. Sir Philip was made Chief Justice of the Supreme Court on 28 January 1925 and held that office until his 70th birthday in 1933. He was appointed Lieutenant-Governor of New South Wales in 1930, and administered the state in the absence of the Governor of New South Wales from May to October 1934, January to February 1935, and January to August 1936. He died in 1938 and was buried with a state funeral at St Andrew’s Cathedral. He is the second longest-serving judge in New South Wales history. His second son was Laurence, and his eldest was the future Sir Kenneth. Lieutenant Laurence Whistler Street (1894–1915) was 21 years of age when he was killed in action in May 1915 during the Gallipoli campaign. A former student of Sydney Law School, he enlisted in the Australian Army in August 1914, among the first of his generation, and was made an officer of the 3rd Battalion of the 1st Infantry Brigade. Lieutenant Colonel Sir Kenneth Whistler Street, KCMG, KStJ, QC (1890–1972) was the 10th Chief Justice of the Supreme Court of New South Wales and Lieutenant-Governor of New South Wales. He was elevated as a judge of the Supreme Court on 7 October 1931, thus joining the bench of which his father was then Chief Justice. According to Percival Serle, this is the only known case in Australian history of a father and a son sitting together as judges on the same bench. Sir Kenneth was sworn in as Chief Justice of the Supreme Court of New South Wales on 7 February 1950. He was Lieutenant-Governor of New South Wales from 1950 to 1972. Prior to his career as a judge, he served in the First World War, having been commissioned on 29 September 1914 in the Duke of Cornwall’s Light Infantry and sent to France. He ultimately rose to the rank of lieutenant colonel in the Citizens Military Force. Like his father before him, he was buried with a state funeral at St Andrew’s Cathedral, Sydney. Street House at Cranbrook School, Sydney is named in his honour. Sir Kenneth married Jessie Mary Grey Lillingston and named his son Laurence after his brother who died at Gallipoli. Jessie Mary Grey, Lady Street (née Lillingston; 1889–1970) was a leading suffragette. She was the daughter of Charles Alfred Gordon Lillingston, JP and Mabel Harriet Ogilvie, the daughter of Australian politician Edward David Stuart Ogilvie, MLC. Jessie campaigned extensively for peace and human rights. She was dubbed “Red Jessie” by her detractors in the right-wing media for her efforts to promote diplomacy with the USSR and ease tensions during the Cold War. She was a key figure in Australian and international political life for over 50 years, from the women’s suffrage struggle in England to the removal of Australia’s constitutional discrimination against Aboriginal people in 1967. Jessie was Australia’s only female delegate to the establishment of the United Nations conference in San Francisco in 1945, where she played a key role in ensuring that gender was included as a non-discrimination clause, in addition to race and religion, in the United Nations Charter. She is recognised both in Australia and internationally for her activism. The Jessie Street Centre, the Jessie Street Trust, the Jessie Street National Women’s Library and the Jessie Street Gardens exist in her honour. Brigadier Geoffrey Austin Street, MP, MC (1894–1940) was a cousin of Sir Kenneth’s who served as Australia’s Minister of Defence in the First Menzies Government during the Second World War. He was awarded a Military Cross for his courage in serving the Australian Imperial Force during the Gallipoli campaign, where he was wounded before returning to service in France during the First World War. At the request of his friend Robert Menzies, he stood for and won the seat of Corangamite in 1934. He was made Minister of Defence in November 1938 and played a major role in the expansion of the military and munitions prior to the outbreak of the Second World War and pushed the National Registration Act (1939) through parliament despite strong opposition, before dying in the 1940 Canberra air disaster. Commander Sir Laurence Whistler Street, AC, KCMG, KStJ, QC (1926–2018) was the 14th Chief Justice of the Supreme Court of New South Wales and Lieutenant-Governor of New South Wales. He was first made a judge of the Supreme Court of New South Wales in the Equity Division. He was appointed Chief Justice and Lieutenant-Governor in 1974; the youngest since 1844. He had joined the Royal Australian Navy at age 17 to serve in the Second World War and went on to become a commander of the Royal Australian Navy Reserve and an honorary colonel of the Australian Army Reserve. Sir Laurence pioneered the practice of mediation and became the chairman of Fairfax Media and a director of Monte dei Paschi di Siena. Sir Laurence’s sister Philippa “Pip” Street married the Australian Test cricketer and journalist John “Jack” Henry Webb Fingleton, OBE in 1942. He was buried with a state funeral at the Sydney Opera House Concert Hall in July 2018. In an elegy before 700, incumbent Australian Prime Minister Malcolm Turnbull spoke of his mentor: “As a barrister, he was as eloquent as he was erudite, as formidable as he was fashionable […] Laurence had movie star good looks coupled with a charisma, charm and intellect, a humility, a humanity that swept all before him […] His nickname, Lorenzo the Magnificent, was well earned.” Incumbent Chief Justice of Australia Tom Bathurst remembered Sir Laurence as “one of the outstanding jurists of the 20th century.” Susan Gai Watt, AM (born 1932) was the first wife of Sir Laurence Street and the first female chair of the Eastern Sydney Health Service (overseer of hospitals). She is the daughter of Ernest Alexander Stuart Watt (1874–1954), a shipping heir by whom she is the niece of Lieutenant Colonel Walter Oswald Watt, the granddaughter of John Brown Watt, and the great-granddaughter of George Kenyon Holden. Anthony Austin “Tony” Street, MP (born 1926), the son of Geoffrey Austin Street, also represented the seat of Corangamite, from 1966 to 1983. A naval veteran of the Second World War, he was Australia’s Foreign Minister in the Fourth Fraser Ministry, from 1980 until 1983. He had previously served in the Third Fraser Ministry as Minister for Employment and Industrial Relations and Minister for Industrial Relations. Prior to that, he had served in the Second Fraser Ministry as Minister for Employment and Industrial Relations. By his first wife, Susan Gai (née Watt), formerly Lady Street, Sir Laurence had four children: Kenneth, Sylvia, Alexander and Sarah. Kenneth Street is a businessman based in New South Wales. By his wife Sarah Street (née Kinross), he has three children. Judge Sylvia Jane Emmett, AM (née Street) is a judge of the Federal Circuit Court of Australia and a lieutenant commander of the Royal Australian Naval Reserve. She graduated from Sydney Law School (LLB) and is married to Justice Arthur Emmett, a federal judge and Challis Lecturer in Roman Law at Sydney Law School. Arthur became a judge of the New South Wales Court of Appeal in 2013 after 15 years as a judge of the Federal Circuit Court. Judge Alexander “Sandy” Whistler Street, SC is also a judge of the Federal Circuit Court of Australia and a commander of the Royal Australian Naval Reserve. He has four children by two wives. Sarah Whistler Farley (née Street) is a businesswoman and board member of the Prince of Wales Hospital Foundation and the Jessie Street Trust. She graduated from Sydney Law School (LLB) and has four children by her husband, financier Gerard Farley. Jessie Street is Sir Laurence’s only child by his second wife and widow Lady (Penelope; née Ferguson) Street. She holds a Juris Doctor degree from Sydney Law School and is the god-daughter of HRH Charles, Prince of Wales." ],
+    [ "two_column", font_size_XS, "smaller", "proof text is elsewhere" ],
 
 # Repeat for caps
+    [ "one_column", font_size_L, "Large", "THE SINIAKA-MINIA FAUNAL RESERVE WAS ESTABLISHED AS AN IUCN CATEGORY IV AREA IN 1965 COVERING AN AREA OF 4,260 KM (1,640 SQ MI), DUE ITS IMPORTANCE FOR PRESERVING BLACK RHINOCEROS. SINIAKA-MINIA HAS BEEN MANAGED BY THE NONPROFIT CONSERVATION ORGANIZATION AFRICAN PARKS SINCE 2017 IN PARTNERSHIP WITH CHAD’S GOVERNMENT FOLLOWING THE SUCCESS OF THE AFRICAN PARKS PARTNERSHIP IN ZAKOUMA NATIONAL PARK. THE RESERVE IS LARGE PLAIN TERRAIN WITH A BACKDROP OF A MASSIF WHICH RISES TO A HEIGHT OF 1,613 METRES (5,292 FT). IT IS DRAINED BY THE SINIAKA RIVER AND DORIOUM RIVER, WHICH ARE EPHEMERAL IN NATURE; SOME WATER HOLES REMAIN FOR USE DURING THE SUMMER MONTHS. VEGETATION IN THE SOUTHERN PART OF THE RESERVE IS OF SUDAN SAVANNA WHILE IN THE NORTH IT CONSISTS OF THORNY BUSHES. THE RESERVE, APART FROM PRESERVING MANY THREATENED SPECIES, ALSO CONTAINS GREATER KUDU, RED-FRONTED GAZELLE, ORIBI, ROAN ANTELOPE, LION AND CHEETAH. WILD ANIMALS IN THE RESERVE ARE SUBJECT TO DEGREE OF POACHING BY WELL ARMED HUNTERS WHICH HAS BEEN DIFFICULT TO CONTROL IN VIEW OF LACK ADEQUATE PERSONNEL AND EQUIPMENT TO CARRY OUT EFFECTIVE SURVEILLANCE OPERATIONS. IT WOULD STILL NEED ATTENTION AS THERE ARE SUFFICIENT NUMBER OF MAMMAL SPECIES WHICH NEED TO BE CONSERVED."],
+
+    [ "one_column", font_size_M, "Medium", "CHARLES BACHMAN MOORE JR. (OCTOBER 28, 1920 – MARCH 2, 2010) WAS AN AMERICAN PHYSICIST, ENGINEER AND METEOROLOGIST, KNOWN FOR HIS RESEARCH ON ATMOSPHERIC PHYSICS AND HIS WORK WITH GAS BALLOONS. HE WAS BORN IN MARYVILLE, TENNESSEE. MOORE ATTENDED COLLEGE AT GEORGIA INSTITUTE OF TECHNOLOGY IN 1940. DURING WORLD WAR II, HE SERVED AS A WEATHER EQUIPMENT OFFICER FOR THE U.S. ARMY AIR CORPS IN THE CHINA-BURMA-INDIA THEATER, AND LATER IN OCCUPIED CHINA. MOORE RETURNED TO GEORGIA TECH AFTER THE WAR, AND RECEIVED A BACHELOR’S DEGREE IN CHEMICAL ENGINEERING IN 1947. MOORE WAS RECRUITED AS A PROJECT ENGINEER FOR PROJECT MOGUL IN 1947 BY NEW YORK UNIVERSITY GEOPHYSICIST ATHELSTAN SPILHAUS, WHO HEADED THE BALLOON GROUP WITHIN THE PROJECT. PROJECT MOGUL, LED BY DR. JAMES PEOPLES AND HIS ASSISTANT ALBERT P. CRARY, MADE USE OF MOORE’S WORK IN MATERIALS SCIENCE ALLOWING THE CONSTRUCTION OF BALLOONS WHICH COULD BETTER WITHSTAND COLD TEMPERATURES AND SAFELY RISE TO SIGNIFICANTLY GREATER ALTITUDES. A BALLOON THAT MOORE HELPED LAUNCH IN NEW MEXICO ON JUNE 4, 1947, WAS LATER IDENTIFIED AS THE SOURCE OF THE DEBRIS FOUND ON THE FOSTER RANCH WHICH LED TO UFO CONSPIRACY THEORIES AND CLAIMS SURROUNDING THE ROSWELL INCIDENT. IN 1953, MOORE JOINED THE ARTHUR D. LITTLE CORPORATION AND WORKED WITH BERNARD VONNEGUT TO DEVELOP TECHNIQUES FOR VAPORIZING SODIUM, CESIUM, AND CALCIUM FROM ROCKETS FOR HIGH-ALTITUDE STUDIES OF WINDS AND SODIUM IN THE UPPER ATMOSPHERE. THEY COLLABORATED ON OVER 50 PUBLICATIONS RELATED TO ATMOSPHERIC ELECTRICITY. MOORE WORKED AT THE GENERAL MILLS AERONAUTICAL RESEARCH LABORATORY THROUGHOUT THE 1950S, PARTICIPATING IN A NUMBER OF PROJECTS SPONSORED BY THE OFFICE OF NAVAL RESEARCH AIMED AT DEVELOPING BOTH MILITARY AND INTELLIGENCE APPLICATIONS FOR BALLOONS, INCLUDING ATTEMPTS TO DROP ANTI-SOVIET LEAFLETS FROM BALLOONS AND THE USE OF BALLOONS FOR SURVEILLANCE PURPOSES. MOORE WAS ALSO KNOWN FOR HIS 1959 EXPEDITION TO THE STRATOSPHERE WITH MALCOLM ROSS, IN WHICH THEY PERFORMED THE FIRST SPECTROGRAPHIC ANALYSIS OF THE PLANET VENUS WHICH WAS FREE OF INTERFERENCE FROM THE EARTH’S ATMOSPHERE, THEREBY PROVING THE EXISTENCE OF WATER ON THAT PLANET; THIS EXPEDITION INVOLVED AN ASCENT TO 89,000 FEET (27 KM, THEN A RECORD FOR ALTITUDE). IN 1969, MOORE BECAME THE CHAIRMAN OF LANGMUIR LABORATORY FOR ATMOSPHERIC RESEARCH AND GREATLY EXPANDED THE LAB’S FACILITIES. MOORE WAS A PROFESSOR OF ATMOSPHERIC PHYSICS AT THE NEW MEXICO INSTITUTE OF MINING AND TECHNOLOGY IN SOCORRO FOR SEVERAL YEARS, AND NOMINALLY RETIRED IN 1985; HOWEVER, HE CONTINUED HIS RESEARCH AFTERWARD, AND HIS SUBSEQUENT DISCOVERIES LED TO THE FIRST IMPROVEMENT IN THE DESIGN OF THE LIGHTNING ROD SINCE THAT DEVICE’S INVENTION BY BENJAMIN FRANKLIN. MOORE HAS RECEIVED A NUMBER OF PROFESSIONAL AND ACADEMIC HONORS." ],
+
+    [ "two_column", font_size_S_cap, "small", "proof text is elsewhere" ],
+
+    [ "two_column", font_size_XS_cap, "smaller", "proof text is elsewhere" ],
+
 
 ]
  
@@ -226,24 +241,24 @@ def drawOneColumnLayout():
             line_height = font_size * 1.2
             tracking(tracking_amount)
             translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
             
         elif font_size == font_size_L:
             type_style()
             fontSize(font_size)
-            line_height = font_size * 1.6
+            line_height = font_size * 1.1
             lineHeight(line_height)
             tracking(tracking_amount)
             translate(0, -fontCapHeight())
-            baselineShift(-(y_cord["1"]/2))
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+            baselineShift(-(y_cord["1"]-20))
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
             
         elif font_size == font_size_M:
             type_style()
             fontSize(font_size)
             tracking(tracking_amount)
             translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="center")
+            textBox(proof_set, (edge_left, y_cord["0"], margin_left_right, margin_top_bottom), align="left")
             
         elif font_size == font_size_S:
             type_style()
@@ -273,14 +288,6 @@ def drawTwoColumnLayout():
     global y_pos_2
     
     with savedState():
-            
-        # # Set type for page title
-        # if font_size == waterfall_L or font_size == waterfall_M or font_size == waterfall_S or font_size == font_size_S or font_size == font_size_XS or font_size == font_size_XXS:
-        #     font(caption_font, 14)
-        #     text(section, (edge_left, y_cord["45"]))
-        # else:
-        #     font(caption_font, 14)
-        #     text(' '.join([str(font_size), "pt.", section]),(edge_left, y_cord["45"]))
         
         # Set type for proof, single type size
         if font_size == font_size_XXL:
@@ -294,67 +301,86 @@ def drawTwoColumnLayout():
             type_style()
             
             # Column 1
-            fontSize(14)
-            line_height = 14 * 1.3
+            fontSize(font_size)
+            line_height = 16
+            lineHeight(line_height)
             translate(0, -fontCapHeight())
-            textBox(proof_set, (edge_left, -(y_cord["6"]), (x_cord["6"]-20), margin_top_bottom), align="left")
+            textBox("Hillhead (Scots: Hullheid, Scottish Gaelic: Ceann a’ Chnuic) is an area of Glasgow, Scotland. Situated north of Kelvingrove Park and to the south of the River Kelvin, Hillhead is at the heart of Glasgow’s fashionable West End, with Byres Road forming the western border of the area, the other boundaries being Dumbarton Road to the south and the River Kelvin to the east and north. Hillhead was an independent police burgh from 1869, but as Glasgow grew during the nineteenth century it was first swallowed up physically by the growing city, and then administratively in 1891. Byres Road is a commercially important district to the city of Glasgow, featuring many of the city’s most fashionable and popular independent boutiques. The University of Glasgow is located in the area, having moved from its original site on the High Street to its current Gilmorehill location in 1870. Consequently a great number of students live in the area. Many academics from the University live in the area along with BBC Scotland employees, actors, broadcasters, writers", (((x_cord["1"])-20), (y_cord["5"]), (x_cord["5"]+30), (y_cord["40"])), align="left")
             
             # Column 2
-            fontSize(16)
-            line_height = 16 * 1.3
-            translate(0, -fontCapHeight())
-            baselineShift(3.75)
-            textBox(proof_set, (x_cord["6"], -(y_cord["6"]), x_cord["6"], margin_top_bottom), align="left")
+            fontSize(font_size)
+            line_height = 16
+            lineHeight(line_height)
+            textBox("and many students from various universities and teaching hospitals, creating an economically and culturally diverse community. Other features of Hillhead include Ashton Lane, Western Baths, Hillhead High School, Glasgow Academy (a private school), and the Kelvinbridge, which straddles the River Kelvin which used to form an eastern boundary between Hillhead and Glasgow, until Hillhead’s incorporation into the city. The area is served by Hillhead subway station and Kelvinbridge subway station on the Glasgow Subway system. The two stops on either side of those are Kelvinhall in Partick, and St George’s Cross in Woodlands. The neoclassical colonnaded Wellington Church is located on University Avenue, directly opposite the University. The church is a Category A listed building. The archives about Hillhead are maintained by the Archives of the University of Glasgow (GUAS).\n\nJill Schlabach (born 1965 or 1966) is an American diver. She competed in the NCAA Championship and ", ((x_cord["7"]-20), (y_cord["5"]), ((x_cord["5"])+30), (y_cord["40"])), align="left")
             
             # Type specs
             meta_style()
             translate(0, y_cord["0"])
-            text("14pt", (edge_left, (y_cord["43"])))
-            text("16pt", (x_cord["6"], (y_cord["43"])))
-        
-        if font_size == font_size_XS:
+            text(str(font_size), (edge_left, (y_cord["45"])-8))
+            
+        elif font_size == font_size_XS:
             type_style()
             
             # Column 1
-            fontSize(12)
-            line_height = 10 * 1.3
+            fontSize(font_size)
+            line_height = 16
+            lineHeight(line_height)
             translate(0, -fontCapHeight())
-            textBox("Angel Adept Blind Bodice Clique Coast Dunce Docile Enact Eosin Furlong Focal Gnome Gondola Human Hoist Inlet Iodine Justin Jocose Knoll Koala Linden Loads Milliner Modal Number Nodule Onset Oddball Pneumo Poncho Quanta Qophs Rhone Roman Snout Sodium Tundra Tocsin Uncle Udder Vulcan Vocal Whale Woman Xmas Xenon Yunnan Young Zloty Zodiac. Angel angel adept for the nuance loads of the arena cocoa and quaalude. Blind blind bodice for the submit oboe of the club snob and abbot. Clique clique coast for the pouch loco of the franc assoc and accede. Dunce dunce docile for the loudness mastodon of the loud statehood and huddle. Enact enact eosin for the quench coed of the pique canoe and bleep. Furlong furlong focal for the genuflect profound of the motif aloof and offers. Gnome gnome gondola for the impugn logos of the unplug analog and smuggle. Human human hoist for the buddhist alcohol of the riyadh caliph and bathhouse. Inlet inlet iodine for the quince champion of the ennui scampi and shiite. Justin justin jocose for the djibouti sojourn of the oranj raj and hajjis. Knoll knoll koala for the banknote lookout of the dybbuk outlook and trekked. Linden linden loads for the ulna monolog of the consul menthol and shallot. Milliner milliner modal for the alumna solomon of the album custom and summon. Number number nodule for the unmade economic of the shotgun bison and tunnel. ", (edge_left, -(y_cord["2"]), x_cord["5"], margin_top_bottom), align="left")
+            textBox("The Street family is an Australian dynasty, founded by the 19th-century banker and politician John Street and his wife Susanna, the daughter of Australian explorer and politician William Lawson. Their son Sir Philip Street, grandson Sir Kenneth Street, and great-grandson Sir Laurence Street each served as Chief Justice of the Supreme Court of New South Wales and Lieutenant-Governor of New South Wales. Geoffrey Street served as Minister of Defence in the Second World War, his son Anthony “Tony” Street served as Minister of Foreign Affairs, and Jessie, Lady Street was Australia’s first female delegate to the United Nations. Sir Laurence’s son Alexander “Sandy” Street, daughter Sylvia Emmett (née Street) and son-in-law Arthur Emmett serve as federal judges. John Rendell Street, MLC (1832–1891) was an Australian banker and politician, born to Maria Wood and John Street, JP. His father descended from Baron Sir Thomas Street, an English Chief Justice who presided on the last King’s Bench before the Glorious Revolution of 1688. Both parents were English immigrants to Australia via the 1822 passenger ship Thalia. In 1886, John founded the Perpetual Trustee Company as managing director with fellow trustees Edmund Barton and James Fairfax. He succeeded Edmund Barton, Australia’s 1st Prime Minister, in his New South Wales Legislative Assembly seat of East Sydney. John married Susanna Lawson, the daughter of Australian politician William Lawson, MLC, who along with William Wentworth and Gregory Blaxland pioneered the first settler crossing of the Blue Mountains in 1813. John and Susanna had seven children, including the future Sir Philip and Ernest, who married Emma Browne, the daughter of Australian author Thomas Browne. John was a director of the Colonial Mutual Life Assurance Company (now Commonwealth Bank). His sister Sarah married Thomas Smith, MLC, managing director of the Commercial Banking Company of Sydney (now NAB) and the nephew of CBCS chairman Henry Smith, MLC. Three other Street ancestors via the wives of Sir Kenneth and Sir Laurence were John’s", (((x_cord["1"])-20), (y_cord["5"]), (x_cord["5"]+30), (y_cord["40"])), align="left")
             
             # Column 2
-            fontSize(12)
-            line_height = 12 * 1.3
-            translate(0, -fontCapHeight())
-            baselineShift(3.75)
-            textBox("Onset onset oddball for the abandon podium of the antiquo tempo and moonlit. Pneumo pneumo poncho for the dauphin opossum of the holdup bishop and supplies. Quanta quanta qophs for the inquest sheqel of the cinq coq and suqqu. Rhone rhone roman for the burnt porous of the lemur clamor and carrot. Snout snout sodium for the ensnare bosom of the genus pathos and missing. Tundra tundra tocsin for the nutmeg isotope of the peasant ingot and ottoman. Uncle uncle udder for the dunes cloud of the hindu thou and continuum. Vulcan vulcan vocal for the alluvial ovoid of the yugoslav chekhov and revved. Whale whale woman for the meanwhile blowout of the forepaw meadow and glowworm. Xmas xmas xenon for the bauxite doxology of the tableaux equinox and exxon. Yunnan yunnan young for the dynamo coyote of the obloquy employ and sayyid. Zloty zloty zodiac for the gizmo ozone of the franz laissez and buzzing.", (x_cord["6"], -(y_cord["2"]), x_cord["5"], margin_top_bottom), align="left")
+            fontSize(font_size)
+            line_height = 16
+            lineHeight(line_height)
+            textBox("contemporaries, namely John Watt, MLC, a director of the Union Bank of Australia (now ANZ), his father-in-law George Holden, MLC, a trustee of the Bank of New South Wales (now Westpac), and Edward Ogilvie, MLC. Sir Philip Whistler Street, KCMG, KC (1863–1938) was the 8th Chief Justice of the Supreme Court of New South Wales and Lieutenant-Governor of New South Wales. On 11 February 1907, he was made a full judge of the Supreme Court of New South Wales. Sir Philip was made Chief Justice of the Supreme Court on 28 January 1925 and held that office until his 70th birthday in 1933. He was appointed Lieutenant-Governor of New South Wales in 1930, and administered the state in the absence of the Governor of New South Wales from May to October 1934, January to February 1935, and January to August 1936. He died in 1938 and was buried with a state funeral at St Andrew’s Cathedral. He is the second longest-serving judge in New South Wales history. His second son was Laurence, and his eldest was the future Sir Kenneth. Lieutenant Laurence Whistler Street (1894–1915) was 21 years of age when he was killed in action in May 1915 during the Gallipoli campaign. A former student of Sydney Law School, he enlisted in the Australian Army in August 1914, among the first of his generation, and was made an officer of the 3rd Battalion of the 1st Infantry Brigade. Lieutenant Colonel Sir Kenneth Whistler Street, KCMG, KStJ, QC (1890–1972) was the 10th Chief Justice of the Supreme Court of New South Wales and Lieutenant-Governor of New South Wales. He was elevated as a judge of the Supreme Court on 7 October 1931, thus joining the bench of which his father was then Chief Justice. According to Percival Serle, this is the only known case in Australian history of a father and a son sitting together as judges on the same bench. Sir Kenneth was sworn in as Chief Justice of the Supreme Court of New South Wales on 7 February 1950. He was Lieutenant-Governor of New South Wales from 1950 to 1972. Prior to his career as a judge, he served in the First World War, having been commissioned on 29 September 1914 in the Duke of Cornwall’s Light", ((x_cord["7"]-20), (y_cord["5"]), ((x_cord["5"])+30), (y_cord["40"])), align="left")
             
             # Type specs
             meta_style()
             translate(0, y_cord["0"])
-            text("12pt", (edge_left, (y_cord["47"])))
-            text("12pt", (x_cord["6"], (y_cord["47"])))
-            
-        if font_size == font_size_XXS:
+            text(str(font_size), (edge_left, (y_cord["45"]-8)))
+
+        elif font_size == font_size_S_cap:
             type_style()
             
             # Column 1
-            fontSize(12)
-            line_height = 10 * 1.3
+            fontSize(font_size)
+            line_height = 16
+            lineHeight(line_height)
             translate(0, -fontCapHeight())
-            textBox("ABIDE ACORN OF THE HABIT DACRON FOR THE BUDDHA GOUDA QUAALUDE. BENCH BOGUS OF THE SCRIBE ROBOT FOR THE APLOMB JACOB RIBBON. CENSUS CORAL OF THE SPICED JOCOSE FOR THE BASIC HAVOC SOCCER. DEMURE DOCILE OF THE TIDBIT LODGER FOR THE CUSPID PERIOD BIDDER. EBBING ECHOING OF THE BUSHED DECAL FOR THE APACHE ANODE NEEDS. FEEDER FOCUS OF THE LIFER BEDFORD FOR THE SERIF PROOF BUFFER. GENDER GOSPEL OF THE PIGEON DOGCART FOR THE SPRIG QUAHOG DIGGER. HERALD HONORS OF THE DIHEDRAL MADHOUSE FOR THE PENH RIYADH BATHHOUSE. IBSEN ICEMAN OF THE APHID NORDIC FOR THE SUSHI SAUDI SHIITE. JENNIES JOGGER OF THE TIJERA ADJOURN FOR THE ORANJ KOWBOJ HAJJIS. KEEPER KOSHER OF THE SHRIKE BOOKCASE FOR THE SHEIK LOGBOOK CHUKKAS. LENDER LOCKER OF THE CHILD GIGOLO FOR THE UNCOIL GAMBOL ENROLLED. MENACE MCCOY OF THE NIMBLE TOMCAT FOR THE DENIM RANDOM SUMMON. NEBULA NOSHED OF THE INBRED BRONCO FOR THE COUSIN CARBON KENNEL. ", (edge_left, -(y_cord["2"]), x_cord["5"], margin_top_bottom), align="left")
+            textBox("HILLHEAD (SCOTS: HULLHEID, SCOTTISH GAELIC: CEANN A’ CHNUIC) IS AN AREA OF GLASGOW, SCOTLAND. SITUATED NORTH OF KELVINGROVE PARK AND TO THE SOUTH OF THE RIVER KELVIN, HILLHEAD IS AT THE HEART OF GLASGOW’S FASHIONABLE WEST END, WITH BYRES ROAD FORMING THE WESTERN BORDER OF THE AREA, THE OTHER BOUNDARIES BEING DUMBARTON ROAD TO THE SOUTH AND THE RIVER KELVIN TO THE EAST AND NORTH. HILLHEAD WAS AN INDEPENDENT POLICE BURGH FROM 1869, BUT AS GLASGOW GREW DURING THE NINETEENTH CENTURY IT WAS FIRST SWALLOWED UP PHYSICALLY BY THE GROWING CITY, AND THEN ADMINISTRATIVELY IN 1891. BYRES ROAD IS A COMMERCIALLY IMPORTANT DISTRICT TO THE CITY OF GLASGOW, FEATURING MANY OF THE CITY’S MOST FASHIONABLE AND POPULAR INDEPENDENT BOUTIQUES. THE UNIVERSITY OF GLASGOW IS LOCATED IN THE AREA, HAVING MOVED FROM ITS ORIGINAL SITE ON THE HIGH STREET TO ITS CURRENT GILMOREHILL LOCATION IN 1870. CONSEQUENTLY A GREAT NUMBER OF STUDENTS LIVE IN THE AREA. MANY ACADEMICS FROM THE UNIVERSITY LIVE IN THE AREA ALONG WITH BBC SCOTLAND EMPLOYEES, ACTORS, BROADCASTERS, WRITERS", (((x_cord["1"])-20), (y_cord["5"]), (x_cord["5"]+30), (y_cord["40"])), align="left")
             
             # Column 2
-            fontSize(12)
-            line_height = 12 * 1.3
-            translate(0, -fontCapHeight())
-            baselineShift(3.75)
-            textBox("OBSESS OCEAN OF THE PHOBIC DOCKSIDE FOR THE GAUCHO LIBIDO HOODED. PENNIES PODIUM OF THE SNIPER OPCODE FOR THE SCRIP BISHOP HOPPER. QUANTA QOPHS OF THE INQUEST OQOS FOR THE CINQ COQ SUQQU. REDUCE ROGUE OF THE GIRDLE ORCHID FOR THE MEMOIR SENSOR SORREL. SENIOR SCONCE OF THE DISBAR GODSON FOR THE HUBRIS AMENDS LESSEN. TENDON TORQUE OF THE UNITED SCOTCH FOR THE NOUGHT FORGOT BITTERS. UNDER UGLINESS OF THE RHUBARB SEDUCE FOR THE MANCHU HINDU CONTINUUM. VERSED VOUCH OF THE DIVER OVOID FOR THE TELAVIV KARPOV FLIVVER. WENCH WORKER OF THE UNWED SNOWCAP FOR THE ANDREW ESCROW GLOWWORM. XENON XOCHITL OF THE MIXED BOXCAR FOR THE SUFFIX ICEBOX EXXON. YEOMAN YONDER OF THE HYBRID ARROYO FOR THE DINGHY BRANDY SAYYID. ZEBRA ZOMBIE OF THE PRIZED OZONE FOR THE FRANZ ARROZ BUZZING.", (x_cord["6"], -(y_cord["2"]), x_cord["5"], margin_top_bottom), align="left")
+            fontSize(font_size)
+            line_height = 16
+            lineHeight(line_height)
+            textBox("AND MANY STUDENTS FROM VARIOUS UNIVERSITIES AND TEACHING HOSPITALS, CREATING AN ECONOMICALLY AND CULTURALLY DIVERSE COMMUNITY. OTHER FEATURES OF HILLHEAD INCLUDE ASHTON LANE, WESTERN BATHS, HILLHEAD HIGH SCHOOL, GLASGOW ACADEMY (A PRIVATE SCHOOL), AND THE KELVINBRIDGE, WHICH STRADDLES THE RIVER KELVIN WHICH USED TO FORM AN EASTERN BOUNDARY BETWEEN HILLHEAD AND GLASGOW, UNTIL HILLHEAD’S INCORPORATION INTO THE CITY. THE AREA IS SERVED BY HILLHEAD SUBWAY STATION AND KELVINBRIDGE SUBWAY STATION ON THE GLASGOW SUBWAY SYSTEM. THE TWO STOPS ON EITHER SIDE OF THOSE ARE KELVINHALL IN PARTICK, AND ST GEORGE’S CROSS IN WOODLANDS. THE NEOCLASSICAL COLONNADED WELLINGTON CHURCH IS LOCATED ON UNIVERSITY AVENUE, DIRECTLY OPPOSITE THE UNIVERSITY. THE CHURCH IS A CATEGORY A LISTED BUILDING. THE ARCHIVES ABOUT HILLHEAD ARE MAINTAINED BY THE ARCHIVES OF THE UNIVERSITY OF GLASGOW (GUAS).\n\nJILL SCHLABACH (BORN 1965 OR 1966) IS AN AMERICAN DIVER. SHE COMPETED IN THE NCAA CHAMPIONSHIP AND", ((x_cord["7"]-20), (y_cord["5"]), ((x_cord["5"])+30), (y_cord["40"])), align="left")
             
             # Type specs
             meta_style()
             translate(0, y_cord["0"])
-            text("12pt", (edge_left, (y_cord["47"])))
-            text("12pt", (x_cord["6"], (y_cord["47"])))
+            text(str(font_size), (edge_left, (y_cord["45"])-8))
+            
+        elif font_size == font_size_XS_cap:
+            type_style()
+            
+            # Column 1
+            fontSize(font_size)
+            line_height = 16
+            lineHeight(line_height)
+            translate(0, -fontCapHeight())
+            textBox("THE STREET FAMILY IS AN AUSTRALIAN DYNASTY, FOUNDED BY THE 19TH-CENTURY BANKER AND POLITICIAN JOHN STREET AND HIS WIFE SUSANNA, THE DAUGHTER OF AUSTRALIAN EXPLORER AND POLITICIAN WILLIAM LAWSON. THEIR SON SIR PHILIP STREET, GRANDSON SIR KENNETH STREET, AND GREAT-GRANDSON SIR LAURENCE STREET EACH SERVED AS CHIEF JUSTICE OF THE SUPREME COURT OF NEW SOUTH WALES AND LIEUTENANT-GOVERNOR OF NEW SOUTH WALES. GEOFFREY STREET SERVED AS MINISTER OF DEFENCE IN THE SECOND WORLD WAR, HIS SON ANTHONY “TONY” STREET SERVED AS MINISTER OF FOREIGN AFFAIRS, AND JESSIE, LADY STREET WAS AUSTRALIA’S FIRST FEMALE DELEGATE TO THE UNITED NATIONS. SIR LAURENCE’S SON ALEXANDER “SANDY” STREET, DAUGHTER SYLVIA EMMETT (NÉE STREET) AND SON-IN-LAW ARTHUR EMMETT SERVE AS FEDERAL JUDGES. JOHN RENDELL STREET, MLC (1832–1891) WAS AN AUSTRALIAN BANKER AND POLITICIAN, BORN TO MARIA WOOD AND JOHN STREET, JP. HIS FATHER DESCENDED FROM BARON SIR THOMAS STREET, AN ENGLISH CHIEF JUSTICE WHO PRESIDED ON THE LAST KING’S BENCH BEFORE THE GLORIOUS REVOLUTION OF 1688. BOTH PARENTS WERE ENGLISH IMMIGRANTS TO AUSTRALIA VIA THE 1822 PASSENGER SHIP THALIA. IN 1886, JOHN FOUNDED THE PERPETUAL TRUSTEE COMPANY AS MANAGING DIRECTOR WITH FELLOW TRUSTEES EDMUND BARTON AND JAMES FAIRFAX. HE SUCCEEDED EDMUND BARTON, AUSTRALIA’S 1ST PRIME MINISTER, IN HIS NEW SOUTH WALES LEGISLATIVE ASSEMBLY SEAT OF EAST SYDNEY. JOHN MARRIED SUSANNA LAWSON, THE DAUGHTER OF AUSTRALIAN POLITICIAN WILLIAM LAWSON, MLC, WHO ALONG WITH WILLIAM WENTWORTH AND GREGORY BLAXLAND PIONEERED THE FIRST SETTLER CROSSING OF THE BLUE MOUNTAINS IN 1813. JOHN AND SUSANNA HAD SEVEN CHILDREN, INCLUDING THE FUTURE SIR PHILIP AND ERNEST, WHO MARRIED EMMA BROWNE, THE DAUGHTER OF AUSTRALIAN AUTHOR THOMAS BROWNE. JOHN WAS A DIRECTOR OF THE COLONIAL MUTUAL LIFE ASSURANCE COMPANY (NOW COMMONWEALTH BANK). HIS SISTER SARAH MARRIED THOMAS SMITH, MLC, MANAGING DIRECTOR OF THE COMMERCIAL BANKING COMPANY OF SYDNEY (NOW NAB) AND THE NEPHEW OF CBCS CHAIRMAN HENRY SMITH, MLC. THREE OTHER STREET ANCESTORS VIA THE WIVES OF SIR KENNETH AND SIR LAURENCE WERE JOHN’S", (((x_cord["1"])-20), (y_cord["5"]), (x_cord["5"]+30), (y_cord["40"])), align="left")
+            
+            # Column 2
+            fontSize(font_size)
+            line_height = 16
+            lineHeight(line_height)
+            textBox("CONTEMPORARIES, NAMELY JOHN WATT, MLC, A DIRECTOR OF THE UNION BANK OF AUSTRALIA (NOW ANZ), HIS FATHER-IN-LAW GEORGE HOLDEN, MLC, A TRUSTEE OF THE BANK OF NEW SOUTH WALES (NOW WESTPAC), AND EDWARD OGILVIE, MLC. SIR PHILIP WHISTLER STREET, KCMG, KC (1863–1938) WAS THE 8TH CHIEF JUSTICE OF THE SUPREME COURT OF NEW SOUTH WALES AND LIEUTENANT-GOVERNOR OF NEW SOUTH WALES. ON 11 FEBRUARY 1907, HE WAS MADE A FULL JUDGE OF THE SUPREME COURT OF NEW SOUTH WALES. SIR PHILIP WAS MADE CHIEF JUSTICE OF THE SUPREME COURT ON 28 JANUARY 1925 AND HELD THAT OFFICE UNTIL HIS 70TH BIRTHDAY IN 1933. HE WAS APPOINTED LIEUTENANT-GOVERNOR OF NEW SOUTH WALES IN 1930, AND ADMINISTERED THE STATE IN THE ABSENCE OF THE GOVERNOR OF NEW SOUTH WALES FROM MAY TO OCTOBER 1934, JANUARY TO FEBRUARY 1935, AND JANUARY TO AUGUST 1936. HE DIED IN 1938 AND WAS BURIED WITH A STATE FUNERAL AT ST ANDREW’S CATHEDRAL. HE IS THE SECOND LONGEST-SERVING JUDGE IN NEW SOUTH WALES HISTORY. HIS SECOND SON WAS LAURENCE, AND HIS ELDEST WAS THE FUTURE SIR KENNETH. LIEUTENANT LAURENCE WHISTLER STREET (1894–1915) WAS 21 YEARS OF AGE WHEN HE WAS KILLED IN ACTION IN MAY 1915 DURING THE GALLIPOLI CAMPAIGN. A FORMER STUDENT OF SYDNEY LAW SCHOOL, HE ENLISTED IN THE AUSTRALIAN ARMY IN AUGUST 1914, AMONG THE FIRST OF HIS GENERATION, AND WAS MADE AN OFFICER OF THE 3RD BATTALION OF THE 1ST INFANTRY BRIGADE. LIEUTENANT COLONEL SIR KENNETH WHISTLER STREET, KCMG, KSTJ, QC (1890–1972) WAS THE 10TH CHIEF JUSTICE OF THE SUPREME COURT OF NEW SOUTH WALES AND LIEUTENANT-GOVERNOR OF NEW SOUTH WALES. HE WAS ELEVATED AS A JUDGE OF THE SUPREME COURT ON 7 OCTOBER 1931, THUS JOINING THE BENCH OF WHICH HIS FATHER WAS THEN CHIEF JUSTICE. ACCORDING TO PERCIVAL SERLE, THIS IS THE ONLY KNOWN CASE IN AUSTRALIAN HISTORY OF A FATHER AND A SON SITTING TOGETHER AS JUDGES ON THE SAME BENCH. SIR KENNETH WAS SWORN IN AS CHIEF JUSTICE OF THE SUPREME COURT OF NEW SOUTH WALES ON 7 FEBRUARY 1950. HE WAS LIEUTENANT-GOVERNOR OF NEW SOUTH WALES FROM 1950 TO 1972. PRIOR TO HIS CAREER AS A JUDGE, HE SERVED IN THE FIRST WORLD WAR, HAVING BEEN COMMISSIONED ON 29 SEPTEMBER 1914 IN THE DUKE OF CORNWALL’S LIGHT", ((x_cord["7"]-20), (y_cord["5"]), ((x_cord["5"])+30), (y_cord["40"])), align="left")
+            
+            # Type specs
+            meta_style()
+            translate(0, y_cord["0"])
+            text(str(font_size), (edge_left, (y_cord["45"]-8)))
+
 
         # Set type for proof, waterfalls
         if font_size == waterfall_L:
@@ -635,30 +661,18 @@ def drawGridLabels():
         for y in range(number_of_rows + 1):
             text(str(y), (margin / -2, y_cord[str(y)]), align="center")
 
-# --------------------------------------
-
-# def collectFilesPaths(folder, extension=''):
-#     """hidden files (starting with a dot) are filtered out"""
-#     paths = []
-#     for eachFileName in [nn for nn in listdir(folder) if not nn.startswith('.')]:
-#         eachPath = join(folder, eachFileName)
-#         if isfile(eachPath) and eachPath.endswith(extension):
-#             paths.append(eachPath)
-#             print(paths)
-#         else:
-#             print(paths)
-#         return paths
-
-                    
-# def getFont(folder, extension=''):
-    
-#     fonts = []
-#     for eachFont in folder:
-#         eachPath = join(folder, eachFont)
-#         if isfile(eachPath) and eachPath.endswith(extension):
-#             f = OpenFont(eachFontPath, showInterface = False)
-#             fonts.append(f)
-#             print(f)
+# Draws title page
+def drawTitlePage(section=""):
+    with savedState():
+        translate(margin, margin)
+        with savedState():
+            translate(0, fontCapHeight() * 2)
+            meta_style()
+            # text(designer_name, (x_cord["0"], y_cord["48"]))
+            # text(typeface_name, (x_cord["0"], y_cord["46"]))
+            text((''.join(postscriptFontName + " " + font_version + " " + proof_name)), (edge_right, edge_top + 5), align = "right")
+            openTypeFeatures(tnum=True)
+            text((''.join(current_date + " , " + current_time)), (edge_right, edge_top - 7), align = "right")
         
 # --------------------------------------
 # -*- Instructions -*- # 
@@ -712,6 +726,35 @@ if __name__ == '__main__':
             elif eachString[1] == font_size_XXS:
                 font_size = eachString[1]
                 drawNewPage()
+
+# -!- ALWAYS KEEP AT BOTTOM OF CODE -!-
+# --------------------------------------
+# -*- Page Numbers -*- # 
+
+# Get all pages
+allPages = pages()
+
+page_number = 0
+
+for page in allPages:
+    
+    # With each loop, add 1 to page number
+    page_number += 1
+    
+    # Set first page as current context
+    if page_number == 1:
+        
+        # Style first page
+        with page:
+            grid()
+            drawTitlePage("")
+    else:
+        
+        # Set next page as current context & add page number
+        with page:
+            meta_style()
+            translate(0, -fontCapHeight())
+            text(str(page_number), (edge_right, edge_bottom - 10), align="right")
 
 # --------------------------------------
 # -*- Save -*- # 

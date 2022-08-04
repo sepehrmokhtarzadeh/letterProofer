@@ -36,8 +36,13 @@ from itertools import islice
 # --------------------------------------
 # -*- Set paths to directories -*- # 
 
-font_folder = "/Users/smokh/S3P0/000-999/400-499 Creative/402 Type Design/02 Oldb/402.02.03 Fonts/2022-08-03"
-proof_folder = "/Users/smokh/S3P0/000-999/400-499 Creative/402 Type Design/03 Leitmotiv/402.03.06 Proofs"
+font_folder = "Path where fonts are location"
+proof_folder = "Path where proofs will be saved"
+
+# To activate saving, uncomment last bit of script below titled "Save"
+# This will create a folder in the format "YYYY-MM-DD" and save a PDF in it
+# If the folder already exists it should just create the PDF
+# If you already saved the file, it will not overwrite but start numbering +1
 
 # --------------------------------------
 # -*- Date & Time -*- # 
@@ -52,8 +57,9 @@ current_time = time.strftime("%H:%M", now)
 # -*- Settings -*- # 
 
 # Set your information
-designer_name = "Sepehr Mokhtarzadeh"
-typeface_name = "Leitmotif"
+designer_name = "Your Name"
+typeface_name = "Your Font Name"
+proof_name = "Kerning"
 
 # Set caption font
 caption_font = "AndaleMono"
@@ -72,6 +78,16 @@ font_size_M = 24
 font_size_S = 16
 font_size_XS = 12
 font_size_XXS = 9
+
+# Set type waterfall sizes
+waterfall_L = (24, 36, 48, 60)
+waterfall_M = (12, 18, 24, 32)
+waterfall_S = (12, 18, 28)
+
+# Waterfall modifier
+modifier = 8
+y_pos_1 = 40
+y_pos_2 = y_pos_1 - 2
 
 # Set type waterfall sizes
 waterfall_L = (24, 36, 48, 60)
@@ -108,9 +124,9 @@ textStrings = [
 
     [ "one_column", font_size_XS, "UC Variants", "H–A–B–C–D–E–F–G–H–I–J–K–L–M–N–O–P–Q–R–S–T–U–V–W–X–Y–Z–Þ–Æ–Ð–\n¿AH ¿BH ¿CH ¿DH ¿EH ¿FH ¿GH ¿HH ¿IH ¿JH ¿KH ¿LH ¿MH ¿NH ¿OH ¿PH ¿QH ¿RH ¿SH ¿TH ¿UH ¿VH ¿WH ¿XH ¿YH ¿ZH\n¡A! ¡B! ¡C! ¡D! ¡E! ¡F! ¡G! ¡H! ¡I! ¡J! ¡K! ¡L! ¡M! ¡N! ¡O! ¡P! ¡Q! ¡R! ¡S! ¡T! ¡U! ¡V! ¡W! ¡X! ¡Y! ¡Z!\n«A» «B» «C» «E» «F» «J» «K» «L» «P» «T» «V» «W» «X» «Y» «Z»\n»A« »B« »C« »E« »F« »J« »K« »L« »R« »T« »V« »W« »X« »Y« »Z«\n–0–1–2–3–4–5–6–7–8–9\n¿00 ¿10 ¿20 ¿30 ¿40 ¿50 ¿60 ¿70 ¿80 ¿90    ¡00 ¡10 ¡20 ¡30 ¡40 ¡50 ¡60 ¡70 ¡80 ¡90\n«0» «1» «2» «3» «4» «5» «6» «7» «8» «9»\n»0« »1« »2« »3« »4« »5« »6« »7« »8« »9«\nH@A@B@C@D@E@F@G@H@I@J@K@L@M@H\nH@N@O@P@Q@R@S@T@U@V@W@X@Y@Z@Æ@Þ@H" ],
 
-    [ "one_column", font_size_XL, "Diacritics", "ÆaÆbÆcÆdÆeÆfÆgÆhÆiÆjÆkÆlÆm\nÆnÆoÆpÆqÆrÆsÆtÆuÆvÆwÆxÆyÆ\nðAðBðCðDðEðFðGðHðIðJðKðLðMðNðOðRðSðTðUð\nŦAŦBŦCŦDŦEŦFŦGŦHŦIŦJŦKŦLŦ\nŦMŦNŦOŦPŦQŦRŦSŦTŦUŦVŦWŦXŦYŦZ\n\næabæcædæeæfægæhæiæjækælæmænæoæpæqæræsætæuævæwæxæyæzæ\nþabþcþdþeþfþgþhþiþjþkþlþmþnþoþpþqþrþsþtþuþvþwþxþyþzþ\nðabðcðdðeðfðgðhðiðjðkðlðmðnðoðpðqðrðsðtðuðvðwðyð\nĩAĩBĩCĩDĩEĩFĩGĩHĩIĩJĩKĩLĩMĩNĩOĩPĩQĩRĩSĩTĩUĩVĩWĩXĩYĩZĩ\n\nąj ąg ąy ći éî fâ fā fă fã få fä fè fë fē fì fî fj fö fü fð gj gy îè ît íč íň íř íš íž ïf įj įg įy ši šī št tă tã tu’ĩ úř ųj ųg ųy žī\nFä Få Fā Fă Fã Fè Fë Fê Fē Fì Fî Fö Kā Kä Kå Kī Kö Kř Kū Pä På Pā Pă Pã Pè Pë Pē Pě Pì Pî Pï Pī Pň Pö Př Pū Pž Ţâ Tâ Tä Tå Tā Tă Tã Tè Tê Të Tē Tĕ Tě Tī Tö Tō Tř Tš Tū Tž Vå Vä Vā Vă Vã Vë Vē Vě Vî Vī Vö Vš Vž Wå Wä Wā Wè Wö Yā Yã Yū" ],
+    [ "one_column", font_size_XS, "Diacritics", "ÆaÆbÆcÆdÆeÆfÆgÆhÆiÆjÆkÆlÆm\nÆnÆoÆpÆqÆrÆsÆtÆuÆvÆwÆxÆyÆ\nðAðBðCðDðEðFðGðHðIðJðKðLðMðNðOðRðSðTðUð\nŦAŦBŦCŦDŦEŦFŦGŦHŦIŦJŦKŦLŦ\nŦMŦNŦOŦPŦQŦRŦSŦTŦUŦVŦWŦXŦYŦZ\n\næabæcædæeæfægæhæiæjækælæmænæoæpæqæræsætæuævæwæxæyæzæ\nþabþcþdþeþfþgþhþiþjþkþlþmþnþoþpþqþrþsþtþuþvþwþxþyþzþ\nðabðcðdðeðfðgðhðiðjðkðlðmðnðoðpðqðrðsðtðuðvðwðyð\nĩAĩBĩCĩDĩEĩFĩGĩHĩIĩJĩKĩLĩMĩNĩOĩPĩQĩRĩSĩTĩUĩVĩWĩXĩYĩZĩ\n\nąj ąg ąy ći éî fâ fā fă fã få fä fè fë fē fì fî fj fö fü fð gj gy îè ît íč íň íř íš íž ïf įj įg įy ši šī št tă tã tu’ĩ úř ųj ųg ųy žī\nFä Få Fā Fă Fã Fè Fë Fê Fē Fì Fî Fö Kā Kä Kå Kī Kö Kř Kū Pä På Pā Pă Pã Pè Pë Pē Pě Pì Pî Pï Pī Pň Pö Př Pū Pž Ţâ Tâ Tä Tå Tā Tă Tã Tè Tê Të Tē Tĕ Tě Tī Tö Tō Tř Tš Tū Tž Vå Vä Vā Vă Vã Vë Vē Vě Vî Vī Vö Vš Vž Wå Wä Wā Wè Wö Yā Yã Yū" ],
 
-    [ "one_column", font_size_XL, "Figures", """01020304050607080900 91929394959697989909\n81828384858687889808 71727374757677879707\n61626364656676869606 51525354556575859505\n41424344546474849404 31323343536373839303\n21223242526272829202 11213141516171819101\n\n$12 $23 $34 $45 $56 $67 $78 $89 $90 $01\n€12 €23 €34 €45 €56 €67 €78 €89 €90 €01\n£12 £23 £34 £45 £56 £67 £78 £89 £90 £01\n¥12 ¥23 ¥34 ¥45 ¥56 ¥67 ¥78 ¥89 ¥90 ¥01\n₺12 ₺23 ₺34 ₺45 ₺56 ₺67 ₺78 ₺89 ₺90 ₺01\n₹12 ₹23 ₹34 ₹45 ₹56 ₹67 ₹78 ₹89 ₹90 ₹01v12¢ 23¢ 34¢ 45¢ 56¢ 67¢ 78¢ 89¢ 90¢ 01¢\n\n“$0 “£0 “€0 “¥0 “₹0¢” 99%” 99%"\n"0" "1" "2" "3" "4" "5" "6" "7" "8" "9"\n“0” “1” “2” “3” “4” “5” “6” “7” “8” “9”\n.1.2.3.4.5.6.7.8.9.0.0 ,1,2,3,4,5,6,7,8,9,0,0\n¿1? ¿2? ¿3? ¿4? ¿5? ¿6? ¿7? ¿8? ¿9? ¿0?\n-1-2-3-4-5-6-7-8-9-0- –1–2–3–4–5–6–7–8–9–0\n0//0//1//2//3//4//5//6//7//8//9""" ],
+    [ "one_column", font_size_XS, "Figures", """01020304050607080900 91929394959697989909\n81828384858687889808 71727374757677879707\n61626364656676869606 51525354556575859505\n41424344546474849404 31323343536373839303\n21223242526272829202 11213141516171819101\n\n$12 $23 $34 $45 $56 $67 $78 $89 $90 $01\n€12 €23 €34 €45 €56 €67 €78 €89 €90 €01\n£12 £23 £34 £45 £56 £67 £78 £89 £90 £01\n¥12 ¥23 ¥34 ¥45 ¥56 ¥67 ¥78 ¥89 ¥90 ¥01\n₺12 ₺23 ₺34 ₺45 ₺56 ₺67 ₺78 ₺89 ₺90 ₺01\n₹12 ₹23 ₹34 ₹45 ₹56 ₹67 ₹78 ₹89 ₹90 ₹01v12¢ 23¢ 34¢ 45¢ 56¢ 67¢ 78¢ 89¢ 90¢ 01¢\n\n“$0 “£0 “€0 “¥0 “₹0¢” 99%” 99%"\n"0" "1" "2" "3" "4" "5" "6" "7" "8" "9"\n“0” “1” “2” “3” “4” “5” “6” “7” “8” “9”\n.1.2.3.4.5.6.7.8.9.0.0 ,1,2,3,4,5,6,7,8,9,0,0\n¿1? ¿2? ¿3? ¿4? ¿5? ¿6? ¿7? ¿8? ¿9? ¿0?\n-1-2-3-4-5-6-7-8-9-0- –1–2–3–4–5–6–7–8–9–0\n0//0//1//2//3//4//5//6//7//8//9""" ],
 
 
 ]
@@ -649,30 +665,18 @@ def drawGridLabels():
         for y in range(number_of_rows + 1):
             text(str(y), (margin / -2, y_cord[str(y)]), align="center")
 
-# --------------------------------------
-
-# def collectFilesPaths(folder, extension=''):
-#     """hidden files (starting with a dot) are filtered out"""
-#     paths = []
-#     for eachFileName in [nn for nn in listdir(folder) if not nn.startswith('.')]:
-#         eachPath = join(folder, eachFileName)
-#         if isfile(eachPath) and eachPath.endswith(extension):
-#             paths.append(eachPath)
-#             print(paths)
-#         else:
-#             print(paths)
-#         return paths
-
-                    
-# def getFont(folder, extension=''):
-    
-#     fonts = []
-#     for eachFont in folder:
-#         eachPath = join(folder, eachFont)
-#         if isfile(eachPath) and eachPath.endswith(extension):
-#             f = OpenFont(eachFontPath, showInterface = False)
-#             fonts.append(f)
-#             print(f)
+# Draws title page
+def drawTitlePage(section=""):
+    with savedState():
+        translate(margin, margin)
+        with savedState():
+            translate(0, fontCapHeight() * 2)
+            meta_style()
+            # text(designer_name, (x_cord["0"], y_cord["48"]))
+            # text(typeface_name, (x_cord["0"], y_cord["46"]))
+            text((''.join(postscriptFontName + " " + font_version + " " + proof_name)), (edge_right, edge_top + 5), align = "right")
+            openTypeFeatures(tnum=True)
+            text((''.join(current_date + " , " + current_time)), (edge_right, edge_top - 7), align = "right")
         
 # --------------------------------------
 # -*- Instructions -*- # 
@@ -726,6 +730,35 @@ if __name__ == '__main__':
             elif eachString[1] == font_size_XXS:
                 font_size = eachString[1]
                 drawNewPage()
+
+# -!- ALWAYS KEEP AT BOTTOM OF CODE -!-
+# --------------------------------------
+# -*- Page Numbers -*- # 
+
+# Get all pages
+allPages = pages()
+
+page_number = 0
+
+for page in allPages:
+    
+    # With each loop, add 1 to page number
+    page_number += 1
+    
+    # Set first page as current context
+    if page_number == 1:
+        
+        # Style first page
+        with page:
+            grid()
+            drawTitlePage("")
+    else:
+        
+        # Set next page as current context & add page number
+        with page:
+            meta_style()
+            translate(0, -fontCapHeight())
+            text(str(page_number), (edge_right, edge_bottom - 10), align="right")
 
 # --------------------------------------
 # -*- Save -*- # 
