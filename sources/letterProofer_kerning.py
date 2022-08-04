@@ -693,7 +693,7 @@ if __name__ == '__main__':
         f = OpenFont(eachFontPath, showInterface = False)
         f.testInstall
         postscriptFontName = '%s-%s' % (f.info.familyName, f.info.styleName)
-        font_version = ''.join(str(f.info.versionMajor) + '.' + str(f.info.versionMinor))
+        font_version = ''.join('v.' + str(f.info.versionMajor) + '.' + str(f.info.versionMinor))
         print(font_version)
         print(postscriptFontName)
         
